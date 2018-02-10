@@ -1,0 +1,11 @@
+{
+  "name": "jon_anderson",
+  "version": "1.0.0",
+  "description": "Jonathan Anderson's profile site.",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Austin Chappell",
+  "license": "ISC"
+}
