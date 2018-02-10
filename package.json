@@ -5,14 +5,20 @@
   "main": "app.js",
   "scripts": {
     "test": "test",
+    "sass": "node-sass assets/scss/index.scss public/index.css --watch",
     "start": "node app.js"
   },
   "author": "Austin Chappell",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.0",
     "ejs": "^2.5.7",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mongoose": "^5.0.4",
+    "node-sass": "^4.7.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   }
 }
