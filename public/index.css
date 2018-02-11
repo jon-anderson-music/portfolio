@@ -28,7 +28,8 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
-  line-height: 1; }
+  line-height: 1;
+  font-family: sans-serif; }
 
 ol, ul {
   list-style: none; }
@@ -54,12 +55,14 @@ table {
   padding-top: 30px; }
   .main-admin-container section.side-nav li {
     padding: 10px; }
+    .main-admin-container section.side-nav li.active a {
+      color: #2CCDC9; }
   .main-admin-container section.side-nav a {
     color: #F0F0F1;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     transition: 500ms; }
     .main-admin-container section.side-nav a:visited {
       color: #F0F0F1; }
   .main-admin-container section.side-nav a:hover {
-    color: #5182DE; }
+    color: #2CCDC9; }

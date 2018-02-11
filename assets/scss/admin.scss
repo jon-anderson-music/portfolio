@@ -8,18 +8,23 @@
     padding-top: 30px;
     li {
       padding: 10px;
+      &.active {
+        a {
+          color: $color-tertiary;
+        }
+      }
     }
     a {
       color: $color-white;
       text-decoration: none;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       transition: 500ms;
       &:visited {
         color: $color-white;
       }
     }
     a:hover {
-      color: $color-primary-light;
+      color: $color-tertiary;
     }
   }
 }
