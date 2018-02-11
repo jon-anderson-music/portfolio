@@ -25,6 +25,8 @@ if (process.env.NODE_ENV === 'development') {
   sess.cookie.secure = false;
 }
 
+console.log('SESSION', sess)
+
 mongoose.connect(DB);
 mongoose.Promise = global.Promise;
 
