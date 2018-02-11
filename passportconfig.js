@@ -28,6 +28,7 @@ function configure(passport) {
   })
 
   passport.deserializeUser(function(id, done) {
+    console.log('ABOUT TO DESERIALIZE', id)
     User.findById(id, function(err, user) {
       console.log('DESERIALIZE USER', user)
       done(err, user)
