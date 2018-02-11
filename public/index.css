@@ -66,3 +66,7 @@ table {
       color: #F0F0F1; }
   .main-admin-container section.side-nav a:hover {
     color: #2CCDC9; }
+
+.main-admin-container main {
+  margin-left: 200px;
+  padding: 30px; }
