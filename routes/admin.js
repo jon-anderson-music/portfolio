@@ -5,6 +5,7 @@ const helpers = new Helpers()
 const { authRequired } = helpers;
 
 router.get('/', authRequired, (req, res) => {
+  console.log('REQ USER', req.user)
   res.render('admin/index')
 })
 
