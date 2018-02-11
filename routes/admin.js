@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router()
+const Helpers = require('../helpers')
+const helpers = new Helpers()
+const { authRequired } = helpers;
 
-router.get('/', (req, res) => {
+router.get('/', authRequired, (req, res) => {
   res.render('admin/index')
-})
-
-router.get('/register', (req, res) => {
-  res.render('admin/register')
 })
 
 module.exports = router;

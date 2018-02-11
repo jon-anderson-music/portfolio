@@ -10,7 +10,7 @@ function configure(passport) {
         console.error('Local Strategy - Error trying to authenticate.')
         done(err)
       } else if (user) {
-        console.log('Local Strategy - Success')
+        console.log('Local Strategy - Success', user)
         done(null, user)
       } else {
         console.log('Local Stategy - Could not find user')
@@ -23,10 +23,11 @@ function configure(passport) {
   passport.use(new LocalStrategy(strategyFunc))
 
   passport.serializeUser(function(user, done) {
+    console.log('SERIALIZE USER', user)
     done(null, user.id)
   })
 
-  passport.deserializeUser(function(user, done) {
+  passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
       done(err, user)
     })

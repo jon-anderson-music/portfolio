@@ -5,37 +5,40 @@ const passport = require('passport');
 const User = require('../models/user')
 
 router.get('/login', (req, res) => {
-  res.render('login')
+  res.render('admin/login', { user: req.user })
 })
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/admin/loggedin',
-  failureRedirect: '/admin/'
+  successRedirect: '/admin/',
+  failureRedirect: '/admin/login'
 }))
 
 router.get('/register', (req, res) => {
-  res.render('register')
+  res.render('admin/register')
 })
 
 router.post('/register', (req, res, next) => {
-  console.log('REQ BODY', req.body)
-  const user = new User({
-    username: req.body.username,
-    password: req.body.password
-  })
-  user.save((err) => {
-    if (err) {
-      console.error('There was an error saving the user', err)
-    }
-    next()
-  })
+  if (req.body.username === 'achappell' || req.body.username === 'janderson') {
+    const user = new User({
+      username: req.body.username,
+      password: req.body.password
+    })
+    user.save((err) => {
+      if (err) {
+        console.error('There was an error saving the user', err)
+      }
+      next()
+    })
+  } else {
+    res.send('YOU ARE NOT AUTHORIZED TO CREATE AN ACCOUNT')
+  }
 }, passport.authenticate('local', {
-  successRedirect: '/admin/loggedin'
+  successRedirect: '/admin/'
 }))
 
 router.get('/logout', (req, res) => {
   req.logout()
-  res.redirect('/login')
+  res.redirect('/admin')
 })
 
 module.exports = router;
