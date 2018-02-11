@@ -14,11 +14,14 @@ router.post('/login', passport.authenticate('local', {
 }))
 
 router.get('/register', (req, res) => {
+  console.log('PROCESS ENV FROM REGISTER ROUTE', process.env)
   res.render('admin/register')
 })
 
 router.post('/register', (req, res, next) => {
-  if (req.body.username === 'achappell' || req.body.username === 'janderson') {
+  const developer = process.env.DEVELOPER_ACCT
+  const client = process.env.CLIENT_ACCT
+  if (req.body.username === developer || req.body.username === client) {
     const user = new User({
       username: req.body.username,
       password: req.body.password
