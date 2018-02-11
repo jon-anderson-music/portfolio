@@ -5,7 +5,7 @@ function configure(passport) {
 
   const strategyFunc = function(username, password, done) {
 
-    User.checkUser(username, password, function(err, user) {
+    User.authenticate(username, password, function(err, user) {
       if (err) {
         console.error('Local Strategy - Error trying to authenticate.')
         done(err)
