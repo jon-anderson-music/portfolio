@@ -44,3 +44,19 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+.main-admin-container section.side-nav {
+  background-color: #2A2D43;
+  color: #F0F0F1;
+  position: absolute;
+  width: 200px;
+  min-height: 100vh;
+  padding-top: 30px; }
+  .main-admin-container section.side-nav li {
+    padding: 10px; }
+  .main-admin-container section.side-nav a {
+    color: #F0F0F1;
+    text-decoration: none;
+    font-size: 1.3rem; }
+    .main-admin-container section.side-nav a:visited {
+      color: #F0F0F1; }

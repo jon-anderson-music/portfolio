@@ -13,19 +13,9 @@ const PORT = process.env.PORT || 3000;
 
 const sess = {
   secret: 'asdfasdfqweoiavnklk',
-  // cookie: {
-  //   secure: true,
-  //   expires: false,
-  // },
   resave: false,
   saveUninitialized: false
 }
-
-// if (process.env.NODE_ENV === 'development') {
-//   sess.cookie.secure = false;
-// }
-
-console.log('SESSION', sess)
 
 mongoose.connect(DB);
 mongoose.Promise = global.Promise;
@@ -33,8 +23,6 @@ mongoose.Promise = global.Promise;
 app.set('view engine', 'ejs')
 
 app.use(express.static('public'))
-
-// app.use(cookieParser());
 
 app.use(session(sess));
 

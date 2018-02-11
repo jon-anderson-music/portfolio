@@ -46,3 +46,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+$color-primary: #2A2D43;
+$color-primary-light: #5182DE;
+$color-secondary: #FC544E;
+$color-tertiary: #2CCDC9;
+$color-white: #F0F0F1;
+
+@import './admin';
+@import './consumer';
