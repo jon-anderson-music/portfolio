@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
+// const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
@@ -13,17 +13,17 @@ const PORT = process.env.PORT || 3000;
 
 const sess = {
   secret: 'asdfasdfqweoiavnklk',
-  cookie: {
-    secure: true,
-    expires: false,
-  },
+  // cookie: {
+  //   secure: true,
+  //   expires: false,
+  // },
   resave: false,
   saveUninitialized: false
 }
 
-if (process.env.NODE_ENV === 'development') {
-  sess.cookie.secure = false;
-}
+// if (process.env.NODE_ENV === 'development') {
+//   sess.cookie.secure = false;
+// }
 
 console.log('SESSION', sess)
 
@@ -34,7 +34,7 @@ app.set('view engine', 'ejs')
 
 app.use(express.static('public'))
 
-app.use(cookieParser());
+// app.use(cookieParser());
 
 app.use(session(sess));
 
