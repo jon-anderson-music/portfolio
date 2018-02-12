@@ -2,8 +2,22 @@
 
 <main>
 
-  <h1>The Audio Route</h1>
-  
+  <form action="/admin/audio" method="post">
+
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" name="title" />
+    </div>
+
+    <div>
+      <label for="url">URL:</label>
+      <input type="text" name="url" />
+    </div>
+
+    <button type="submit" name="button">Add Audio File</button>
+
+  </form>
+
 </main>
 
 <% include partials/_footer %>
