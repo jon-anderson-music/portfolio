@@ -8,7 +8,7 @@
 
     <div>
       <label for="title">Title</label>
-      <input type="text" name="Title" />
+      <input class="title" type="text" name="Title" />
     </div>
 
     <div>
@@ -26,11 +26,21 @@
 
   <img src="" alt="" class="img-preview" />
 
+  <h1>Your Photos</h1>
+
+  <% photos.forEach((photo, index) => { %>
+    <div>
+      <h2><%= photo.title %></h2>
+      <img src="<%= photo.url %>" alt="<%= photo.title %>" />
+    </div>
+  <% }) %>
+
 </main>
 
 <script type="text/javascript">
 
   const fileInput = document.querySelector('.image-uploader')
+  const titleInput = document.querySelector('.title')
   const imgPreview = document.querySelector('.img-preview')
   const submitBtn = document.querySelector('button')
 
@@ -47,6 +57,27 @@
   function submit(e) {
     e.preventDefault()
     console.log('FORM ABOUT TO SUBMIT FOR REAL', fileInput.files[0])
+    const fileReader = new FileReader()
+    fileReader.readAsDataURL(fileInput.files[0])
+    fileReader.addEventListener('load', () => {
+      const image = fileReader.result;
+      const title = titleInput.value;
+      fetch('/admin/photo', {
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          title,
+          image
+        })
+      }).then((response) => {
+        console.log('RESPONSE', response)
+      }).catch((err) => {
+        console.error('ERROR POSTING IMAGE', err);
+      })
+    })
   }
 
   submitBtn.addEventListener('click', (e) => {
