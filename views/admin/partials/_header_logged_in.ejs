@@ -6,13 +6,22 @@
     <link rel="stylesheet" href="/index.css">
   </head>
   <body>
+    <% const navItems = [
+      { path: '', label: 'Overview' },
+      { path: 'audio', label: 'Audio' },
+      { path: 'video', label: 'Video' },
+      { path: 'photo', label: 'Photos' },
+      { path: 'logout', label: 'Logout' },
+    ] %>
     <div class="main-admin-container">
       <section class="side-nav">
         <ul>
-          <li class="active"><a href="/admin/">Overview</a></li>
-          <li><a href="/admin/audio">Audio Uploads</a></li>
-          <li><a href="/admin/video">Video Uploads</a></li>
-          <li><a href="/admin/photo">Photo Gallery</a></li>
-          <li><a href="/admin/logout">Logout</a></li>
+          <% navItems.forEach((item, index) => { %>
+            <li class="<%= active === item.label ? 'active' : '' %>">
+              <a href="/admin/<%= item.path %>">
+                <%= item.label %>
+              </a>
+            </li>
+          <% }) %>
         </ul>
       </section>
