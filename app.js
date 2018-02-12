@@ -36,6 +36,7 @@ app.use(bodyParser.json())
 app.use('/', require('./routes/main'))
 app.use('/admin', require('./routes/admin'))
 app.use('/admin', require('./routes/auth'))
+app.use('/admin/photo', require('./routes/photo'))
 
 app.listen(PORT, () => {
   console.log(`Your app is running on PORT ${PORT}`)

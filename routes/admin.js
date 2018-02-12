@@ -28,8 +28,4 @@ router.get('/video', authRequired, (req, res) => {
   res.render('admin/video', { active: 'Video' })
 })
 
-router.get('/photo', authRequired, (req, res) => {
-  res.render('admin/photo', { active: 'Photos' })
-})
-
 module.exports = router;

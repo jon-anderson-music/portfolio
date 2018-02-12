@@ -1,9 +1,58 @@
 <% include partials/_header_logged_in %>
 
 <main>
-  
+
   <h1>The Gallery Route</h1>
 
+  <form action="/admin/photo" method="post">
+
+    <div>
+      <label for="title">Title</label>
+      <input type="text" name="Title" />
+    </div>
+
+    <div>
+      <label for="file">File</label>
+      <input class="image-uploader" type="file" name="file" />
+    </div>
+
+    <div class="image-upload-handler">
+
+    </div>
+
+    <button type="submit" name="button">Submit</button>
+
+  </form>
+
+  <img src="" alt="" class="img-preview" />
+
 </main>
+
+<script type="text/javascript">
+
+  const fileInput = document.querySelector('.image-uploader')
+  const imgPreview = document.querySelector('.img-preview')
+  const submitBtn = document.querySelector('button')
+
+  fileInput.addEventListener('change', () => {
+    console.log('FILE CHANGING')
+    const fileReader = new FileReader()
+    fileReader.addEventListener('load', () => {
+      console.log('FILE LOADED', fileReader.result)
+      imgPreview.src = fileReader.result;
+    })
+    fileReader.readAsDataURL(fileInput.files[0])
+  })
+
+  function submit(e) {
+    e.preventDefault()
+    console.log('FORM ABOUT TO SUBMIT FOR REAL', fileInput.files[0])
+  }
+
+  submitBtn.addEventListener('click', (e) => {
+    submit(e)
+  })
+
+</script>
 
 <% include partials/_footer %>
