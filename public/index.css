@@ -90,9 +90,9 @@ table {
     border: 1px solid #2A2D43;
     box-sizing: border-box;
     border-radius: 5px;
-    transition: 300ms; }
+    transition: 300ms;
+    outline: none; }
     .login input:focus {
-      outline: none;
       border-color: #5182DE; }
   .login button {
     background-color: #2A2D43;
@@ -105,6 +105,7 @@ table {
     width: 100%;
     max-width: 300px;
     cursor: pointer;
-    transition: 300ms; }
+    transition: 300ms;
+    outline: none; }
     .login button:hover {
       background-color: #5182DE; }
