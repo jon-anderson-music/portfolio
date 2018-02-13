@@ -26,12 +26,13 @@ router.post('/', authRequired, (req, res) => {
         title: req.body.title,
         url: result.url
       }
-      const photo = new Photo(image)
-      photo.save((err, newPhoto) => {
+      Photo.create(image, (err, photo) => {
         if (err) {
-          res.status(500).send(err)
+          console.error('ERROR SAVING PHOTO', err)
+        } else {
+          console.log('THE PHOTO SAVED', photo)
+          res.json(photo)
         }
-        return res.redirect('/')
       })
     }
   })

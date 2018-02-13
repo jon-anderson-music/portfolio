@@ -1,39 +1,47 @@
 <% include partials/_header_logged_in %>
 
-<main>
+<main class="photos-page">
 
-  <h1>The Gallery Route</h1>
+  <div class="form-wrapper">
 
-  <form action="/admin/photo" method="post">
+    <form action="/admin/photo" method="post">
+
+      <div>
+        <input class="title" type="text" name="Title" placeholder="Title" />
+      </div>
+
+      <div class="sr-only">
+        <label for="file">File</label>
+        <input class="image-uploader" type="file" name="file" />
+      </div>
+
+      <button type="submit" name="button" disabled>Submit</button>
+
+    </form>
 
     <div>
-      <label for="title">Title</label>
-      <input class="title" type="text" name="Title" />
-    </div>
 
-    <div>
-      <label for="file">File</label>
-      <input class="image-uploader" type="file" name="file" />
-    </div>
+      <div class="image-upload-handler">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      </div>
 
-    <div class="image-upload-handler">
+      <img src="" alt="" class="img-preview" />
 
     </div>
 
-    <button type="submit" name="button">Submit</button>
 
-  </form>
+  </div>
 
-  <img src="" alt="" class="img-preview" />
+  <div class="photo-gallery">
 
-  <h1>Your Photos</h1>
+    <% photos.forEach((photo, index) => { %>
+      <div class="photo">
+        <img src="<%= photo.url %>" alt="<%= photo.title %>" />
+        <h2><%= photo.title %></h2>
+      </div>
+      <% }) %>
 
-  <% photos.forEach((photo, index) => { %>
-    <div>
-      <h2><%= photo.title %></h2>
-      <img src="<%= photo.url %>" alt="<%= photo.title %>" />
-    </div>
-  <% }) %>
+  </div>
 
 </main>
 
@@ -42,7 +50,16 @@
   const fileInput = document.querySelector('.image-uploader')
   const titleInput = document.querySelector('.title')
   const imgPreview = document.querySelector('.img-preview')
+  const imgUploadHandler = document.querySelector('.image-upload-handler')
   const submitBtn = document.querySelector('button')
+
+  titleInput.addEventListener('keyup', () => {
+    validateForm()
+  })
+
+  imgUploadHandler.addEventListener('click', () => {
+    fileInput.click()
+  })
 
   fileInput.addEventListener('change', () => {
     console.log('FILE CHANGING')
@@ -50,9 +67,19 @@
     fileReader.addEventListener('load', () => {
       console.log('FILE LOADED', fileReader.result)
       imgPreview.src = fileReader.result;
+      imgUploadHandler.style.display = 'none';
+      validateForm()
     })
     fileReader.readAsDataURL(fileInput.files[0])
   })
+
+  function validateForm() {
+    if (fileInput.files[0] && titleInput.value.trim()) {
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.disabled = true;
+    }
+  }
 
   function submit(e) {
     e.preventDefault()
@@ -74,6 +101,11 @@
         })
       }).then((response) => {
         console.log('RESPONSE', response)
+        if (response.status === 200) {
+          window.location.reload()
+        } else {
+          alert('THERE WAS AN ERROR SAVING THE PHOTO')
+        }
       }).catch((err) => {
         console.error('ERROR POSTING IMAGE', err);
       })

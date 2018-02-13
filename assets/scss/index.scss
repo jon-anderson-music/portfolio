@@ -48,11 +48,37 @@ table {
 	border-spacing: 0;
 }
 
+.sr-only {
+	display: none;
+}
+
 $color-primary: #2A2D43;
 $color-primary-light: #5182DE;
 $color-secondary: #FC544E;
 $color-tertiary: #2CCDC9;
 $color-white: #F0F0F1;
+
+@mixin button($bgcolor, $textcolor, $hoverbgcolor) {
+	background-color: $bgcolor;
+	color: $textcolor;
+	padding: 10px 10px;
+	border: none;
+	border-radius: 5px;
+	font-size: 20px;
+	margin: 20px auto;
+	width: 100%;
+	max-width: 300px;
+	cursor: pointer;
+	transition: 300ms;
+	outline: none;
+	&:hover {
+		background-color: $hoverbgcolor;
+	}
+	&:disabled {
+		background-color: #ccc;
+		cursor: not-allowed;
+	}
+}
 
 @import './admin';
 @import './consumer';
