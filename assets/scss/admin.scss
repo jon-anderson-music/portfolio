@@ -69,15 +69,17 @@ $admin-nav-width: 200px;
     }
   }
 
-  input {
+  input, textarea {
     margin: 5px 0 20px;
     padding: 5px;
     border: 1px solid $color-primary;
     box-sizing: border-box;
     border-radius: 5px;
-    font-size: 24px;
+    font-size: 18px;
     transition: 300ms;
     outline: none;
+    resize: none;
+    width: 300px;
     &:focus {
       border-color: $color-primary-light;
     }
@@ -87,6 +89,7 @@ $admin-nav-width: 200px;
     .photo-gallery {
       display: flex;
       flex-wrap: wrap;
+      align-items: stretch;
       .photo {
         max-width: 200px;
         box-shadow: 2px 2px 5px #ccc;

@@ -119,21 +119,24 @@ table {
   .main-admin-container main .img-preview {
     max-width: 200px; }
 
-.main-admin-container input {
+.main-admin-container input, .main-admin-container textarea {
   margin: 5px 0 20px;
   padding: 5px;
   border: 1px solid #2A2D43;
   box-sizing: border-box;
   border-radius: 5px;
-  font-size: 24px;
+  font-size: 18px;
   transition: 300ms;
-  outline: none; }
-  .main-admin-container input:focus {
+  outline: none;
+  resize: none;
+  width: 300px; }
+  .main-admin-container input:focus, .main-admin-container textarea:focus {
     border-color: #5182DE; }
 
 .main-admin-container .photos-page .photo-gallery {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  align-items: stretch; }
   .main-admin-container .photos-page .photo-gallery .photo {
     max-width: 200px;
     box-shadow: 2px 2px 5px #ccc;

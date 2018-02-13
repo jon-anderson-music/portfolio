@@ -24,6 +24,7 @@ router.post('/', authRequired, (req, res) => {
       console.log('RESULT', result);
       const image = {
         title: req.body.title,
+        description: req.body.description,
         url: result.url
       }
       Photo.create(image, (err, photo) => {

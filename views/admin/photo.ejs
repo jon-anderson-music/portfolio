@@ -7,7 +7,8 @@
     <form action="/admin/photo" method="post">
 
       <div>
-        <input class="title" type="text" name="Title" placeholder="Title" />
+        <input class="title" type="text" name="title" placeholder="Title" />
+        <textarea class="description" type="text" name="description" placeholder="Description"></textarea>
       </div>
 
       <div class="sr-only">
@@ -38,6 +39,7 @@
       <div class="photo">
         <img src="<%= photo.url %>" alt="<%= photo.title %>" />
         <h2><%= photo.title %></h2>
+        <p><%= photo.description %></p>
       </div>
       <% }) %>
 
@@ -49,6 +51,7 @@
 
   const fileInput = document.querySelector('.image-uploader')
   const titleInput = document.querySelector('.title')
+  const descriptionInput = document.querySelector('.description')
   const imgPreview = document.querySelector('.img-preview')
   const imgUploadHandler = document.querySelector('.image-upload-handler')
   const submitBtn = document.querySelector('button')
@@ -89,6 +92,7 @@
     fileReader.addEventListener('load', () => {
       const image = fileReader.result;
       const title = titleInput.value;
+      const description = descriptionInput.value;
       fetch('/admin/photo', {
         credentials: 'include',
         headers: {
@@ -97,6 +101,7 @@
         method: 'POST',
         body: JSON.stringify({
           title,
+          description,
           image
         })
       }).then((response) => {
