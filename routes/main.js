@@ -1,8 +1,8 @@
 const express = require('express');
-const router = express.Router()
+const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send('This is the index route')
-})
+  res.render('main/index');
+});
 
 module.exports = router;

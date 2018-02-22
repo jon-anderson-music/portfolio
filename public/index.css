@@ -2,19 +2,87 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -23,22 +91,35 @@ time, mark, audio, video {
   vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block; }
 
 body {
   line-height: 1;
   font-family: sans-serif; }
 
-ol, ul {
+ol,
+ul {
   list-style: none; }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none; }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: '';
   content: none; }
 
@@ -50,8 +131,8 @@ table {
   display: none; }
 
 .main-admin-container section.side-nav {
-  background-color: #2A2D43;
-  color: #F0F0F1;
+  background-color: #010e5d;
+  color: #f0f0f1;
   position: absolute;
   width: 200px;
   min-height: 100vh;
@@ -59,16 +140,16 @@ table {
   .main-admin-container section.side-nav li {
     padding: 10px; }
     .main-admin-container section.side-nav li.active a {
-      color: #2CCDC9; }
+      color: #2ccdc9; }
   .main-admin-container section.side-nav a {
-    color: #F0F0F1;
+    color: #f0f0f1;
     text-decoration: none;
     font-size: 1.2rem;
     transition: 500ms; }
     .main-admin-container section.side-nav a:visited {
-      color: #F0F0F1; }
+      color: #f0f0f1; }
   .main-admin-container section.side-nav a:hover {
-    color: #2CCDC9; }
+    color: #2ccdc9; }
 
 .main-admin-container main {
   margin-left: 200px;
@@ -76,12 +157,12 @@ table {
   .main-admin-container main .form-wrapper {
     display: flex;
     justify-content: space-between;
-    border: 1px solid #2A2D43;
+    border: 1px solid #010e5d;
     border-radius: 10px;
     max-width: 600px;
     padding: 50px; }
     .main-admin-container main .form-wrapper button {
-      background-color: #2A2D43;
+      background-color: #010e5d;
       color: #fff;
       padding: 10px 10px;
       border: none;
@@ -94,7 +175,7 @@ table {
       transition: 300ms;
       outline: none; }
       .main-admin-container main .form-wrapper button:hover {
-        background-color: #5182DE; }
+        background-color: #5182de; }
       .main-admin-container main .form-wrapper button:disabled {
         background-color: #ccc;
         cursor: not-allowed; }
@@ -122,7 +203,7 @@ table {
 .main-admin-container input, .main-admin-container textarea {
   margin: 5px 0 20px;
   padding: 5px;
-  border: 1px solid #2A2D43;
+  border: 1px solid #010e5d;
   box-sizing: border-box;
   border-radius: 5px;
   font-size: 18px;
@@ -131,7 +212,7 @@ table {
   resize: none;
   width: 300px; }
   .main-admin-container input:focus, .main-admin-container textarea:focus {
-    border-color: #5182DE; }
+    border-color: #5182de; }
 
 .main-admin-container .photos-page .photo-gallery {
   display: flex;
@@ -146,7 +227,7 @@ table {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #F0F0F1; }
+    background-color: #f0f0f1; }
   .main-admin-container .photos-page .photo-gallery .photo img {
     width: 100%;
     margin-bottom: 10px; }
@@ -169,8 +250,8 @@ table {
   .login label {
     display: block; }
   .login button {
-    background-color: #2A2D43;
-    color: #F0F0F1;
+    background-color: #010e5d;
+    color: #f0f0f1;
     padding: 10px 10px;
     border: none;
     border-radius: 5px;
@@ -182,14 +263,72 @@ table {
     transition: 300ms;
     outline: none; }
     .login button:hover {
-      background-color: #5182DE; }
+      background-color: #5182de; }
   .login input {
     margin: 5px 0 20px;
     padding: 5px;
-    border: 1px solid #2A2D43;
+    border: 1px solid #010e5d;
     box-sizing: border-box;
     border-radius: 5px;
     transition: 300ms;
     outline: none; }
     .login input:focus {
-      border-color: #5182DE; }
+      border-color: #5182de; }
+
+.index {
+  background-color: #010e5d;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; }
+  .index * {
+    color: #f0f0f1; }
+  .index nav {
+    display: flex;
+    padding: 20px 160px;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase; }
+    .index nav h2 {
+      border-top: 3px solid #f0f0f1;
+      border-bottom: 3px solid #f0f0f1;
+      padding: 3px 0;
+      font-size: 0.9rem;
+      font-weight: 700; }
+  .index ul {
+    display: flex; }
+    .index ul li {
+      margin-left: 20px;
+      font-size: 0.7rem;
+      font-weight: 600; }
+  .index .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; }
+    .index .content .container {
+      max-width: 700px;
+      border: 6px solid #f0f0f1;
+      border-radius: 2px;
+      padding: 40px;
+      text-align: center;
+      font-family: serif; }
+    .index .content .header {
+      margin-top: -70px;
+      margin-bottom: 20px;
+      background-color: #010e5d;
+      font-size: 36px;
+      padding: 10px;
+      font-weight: 500; }
+    .index .content span {
+      font-weight: 100; }
+    .index .content .slider-indicator {
+      display: flex;
+      justify-content: center;
+      margin-top: 120px; }
+      .index .content .slider-indicator ul li {
+        color: #f0f0f1;
+        opacity: 0.6;
+        font-size: 0.8rem;
+        margin: 5px; }
+        .index .content .slider-indicator ul li.active {
+          opacity: 1; }
