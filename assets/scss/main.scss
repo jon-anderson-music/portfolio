@@ -8,7 +8,7 @@
   }
   nav {
     display: flex;
-    padding: 20px 160px;
+    padding: 40px 160px;
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
@@ -16,7 +16,7 @@
       border-top: 3px solid $color-white;
       border-bottom: 3px solid $color-white;
       padding: 3px 0;
-      font-size: 0.9rem;
+      font-size: 2rem;
       font-weight: 700;
     }
   }
@@ -24,7 +24,7 @@
     display: flex;
     li {
       margin-left: 20px;
-      font-size: 0.7rem;
+      font-size: 1.6rem;
       font-weight: 600;
     }
   }
@@ -35,23 +35,24 @@
     align-items: center;
     flex-grow: 1;
     .container {
-      max-width: 700px;
-      border: 6px solid $color-white;
+      max-width: 800px;
+      border: 8px solid $color-white;
       border-radius: 2px;
       padding: 40px;
       text-align: center;
       font-family: serif;
     }
     .header {
-      margin-top: -70px;
+      margin-top: -1.3em;
       margin-bottom: 20px;
       background-color: $color-primary;
-      font-size: 36px;
+      font-size: 7rem;
       padding: 10px;
       font-weight: 500;
     }
     span {
       font-weight: 100;
+      font-size: 3rem;
     }
     .slider-indicator {
       display: flex;
@@ -60,7 +61,7 @@
       ul li {
         color: $color-white;
         opacity: 0.6;
-        font-size: 0.8rem;
+        font-size: 1.5rem;
         margin: 5px;
         &.active {
           opacity: 1;

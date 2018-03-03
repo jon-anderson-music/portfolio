@@ -320,7 +320,7 @@ table {
     color: #f0f0f1; }
   .main nav {
     display: flex;
-    padding: 20px 160px;
+    padding: 40px 160px;
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase; }
@@ -328,13 +328,13 @@ table {
       border-top: 3px solid #f0f0f1;
       border-bottom: 3px solid #f0f0f1;
       padding: 3px 0;
-      font-size: 0.9rem;
+      font-size: 2rem;
       font-weight: 700; }
   .main ul {
     display: flex; }
     .main ul li {
       margin-left: 20px;
-      font-size: 0.7rem;
+      font-size: 1.6rem;
       font-weight: 600; }
   .main .content {
     display: flex;
@@ -342,21 +342,22 @@ table {
     align-items: center;
     flex-grow: 1; }
     .main .content .container {
-      max-width: 700px;
-      border: 6px solid #f0f0f1;
+      max-width: 800px;
+      border: 8px solid #f0f0f1;
       border-radius: 2px;
       padding: 40px;
       text-align: center;
       font-family: serif; }
     .main .content .header {
-      margin-top: -70px;
+      margin-top: -1.3em;
       margin-bottom: 20px;
       background-color: #010e5d;
-      font-size: 36px;
+      font-size: 7rem;
       padding: 10px;
       font-weight: 500; }
     .main .content span {
-      font-weight: 100; }
+      font-weight: 100;
+      font-size: 3rem; }
     .main .content .slider-indicator {
       display: flex;
       justify-content: center;
@@ -364,7 +365,7 @@ table {
       .main .content .slider-indicator ul li {
         color: #f0f0f1;
         opacity: 0.6;
-        font-size: 0.8rem;
+        font-size: 1.5rem;
         margin: 5px; }
         .main .content .slider-indicator ul li.active {
           opacity: 1; }
