@@ -1,0 +1,40 @@
+.about {
+  min-height: 100vh;
+  background-color: $color-white;
+  display: flex;
+  .description {
+    flex-grow: 1;
+    padding-left: 15%;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .about-content {
+    }
+    h1 {
+      color: $color-secondary-dark;
+      border-bottom: 8px solid $color-secondary-light;
+      display: inline-block;
+      font-size: 6rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 0 0 3.5rem;
+    }
+    h2 {
+      font-size: 2.8em;
+      font-weight: 700;
+      line-height: 1.5em;
+    }
+    p {
+      font-size: 2.2rem;
+      line-height: 2em;
+      letter-spacing: 1px;
+      margin: 4rem 0 0;
+    }
+  }
+  .photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}

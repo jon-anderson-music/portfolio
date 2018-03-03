@@ -105,6 +105,9 @@ nav,
 section {
   display: block;
 }
+html {
+  font-size: 10px;
+}
 body {
   line-height: 1;
   font-family: sans-serif;
@@ -121,7 +124,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -136,6 +139,8 @@ table {
 $color-primary: #010e5d;
 $color-primary-light: #5182de;
 $color-secondary: #fc544e;
+$color-secondary-dark: #fc1454;
+$color-secondary-light: #fecdce;
 $color-tertiary: #2ccdc9;
 $color-white: #f0f0f1;
 
@@ -161,5 +166,6 @@ $color-white: #f0f0f1;
   }
 }
 
-@import './admin';
-@import './main';
+@import "./about";
+@import "./admin";
+@import "./main";

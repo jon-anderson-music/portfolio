@@ -4,6 +4,7 @@
   "description": "Jonathan Anderson's profile site.",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon app.js",
     "test": "test",
     "sass": "node-sass assets/scss/index.scss public/index.css --watch",
     "start": "node app.js"
@@ -18,6 +19,7 @@
     "cookie-parser": "^1.4.3",
     "dotenv": "^5.0.0",
     "ejs": "^2.5.7",
+    "eslint": "^4.18.1",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "jsonwebtoken": "^8.1.1",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-ejs": "0.0.2",
     "eslint-plugin-import": "^2.9.0"
   }
 }
