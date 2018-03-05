@@ -320,7 +320,11 @@ table {
     color: #f0f0f1; }
   .main nav {
     display: flex;
-    padding: 40px 160px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 160px;
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase; }
@@ -336,6 +340,8 @@ table {
       margin-left: 20px;
       font-size: 1.6rem;
       font-weight: 600; }
+      .main ul li a {
+        text-decoration: none; }
   .main .content {
     display: flex;
     justify-content: center;

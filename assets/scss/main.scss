@@ -8,7 +8,11 @@
   }
   nav {
     display: flex;
-    padding: 40px 160px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 160px;
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
@@ -26,6 +30,9 @@
       margin-left: 20px;
       font-size: 1.6rem;
       font-weight: 600;
+      a {
+        text-decoration: none;
+      }
     }
   }
 
