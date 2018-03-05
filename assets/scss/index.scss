@@ -141,8 +141,27 @@ $color-primary-light: #5182de;
 $color-secondary: #fc544e;
 $color-secondary-dark: #fc1454;
 $color-secondary-light: #fecdce;
-$color-tertiary: #2ccdc9;
+$color-tertiary: #3ce391;
+$media-bg: #322278;
+$color-black: #111111;
 $color-white: #f0f0f1;
+
+@mixin sectionTitle($r, $g, $b) {
+  color: rgba($r, $g, $b, 1);
+  border-bottom: 8px solid rgba($r, $g, $b, 0.5);
+  display: inline-block;
+  font-size: 6.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 3.5rem;
+}
+
+@mixin sectionSubtitle($color) {
+  color: $color;
+  font-size: 2.8em;
+  font-weight: 700;
+  line-height: 1.5em;
+}
 
 @mixin button($bgcolor, $textcolor, $hoverbgcolor) {
   background-color: $bgcolor;
@@ -166,6 +185,17 @@ $color-white: #f0f0f1;
   }
 }
 
+.page {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 @import "./about";
 @import "./admin";
 @import "./main";
+@import "./media";

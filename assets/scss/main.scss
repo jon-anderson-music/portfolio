@@ -1,6 +1,5 @@
 .main {
   background-color: $color-primary;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   & * {
@@ -41,8 +40,7 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    .container {
-      max-width: 800px;
+    .box {
       border: 8px solid $color-white;
       border-radius: 2px;
       padding: 40px;

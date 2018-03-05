@@ -133,8 +133,15 @@ table {
 .sr-only {
   display: none; }
 
-.about {
+.page {
   min-height: 100vh;
+  box-sizing: border-box; }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto; }
+
+.about {
   background-color: #f0f0f1;
   display: flex; }
   .about .description {
@@ -145,14 +152,15 @@ table {
     flex-direction: column;
     justify-content: center; }
     .about .description h1 {
-      color: #fc1454;
-      border-bottom: 8px solid #fecdce;
+      color: #f91d57;
+      border-bottom: 8px solid rgba(249, 29, 87, 0.5);
       display: inline-block;
-      font-size: 6rem;
+      font-size: 6.5rem;
       text-transform: uppercase;
       font-weight: 600;
       margin: 0 0 3.5rem; }
     .about .description h2 {
+      color: #111111;
       font-size: 2.8em;
       font-weight: 700;
       line-height: 1.5em; }
@@ -176,7 +184,7 @@ table {
   .main-admin-container section.side-nav li {
     padding: 10px; }
     .main-admin-container section.side-nav li.active a {
-      color: #2ccdc9; }
+      color: #3ce391; }
   .main-admin-container section.side-nav a {
     color: #f0f0f1;
     text-decoration: none;
@@ -185,7 +193,7 @@ table {
     .main-admin-container section.side-nav a:visited {
       color: #f0f0f1; }
   .main-admin-container section.side-nav a:hover {
-    color: #2ccdc9; }
+    color: #3ce391; }
 
 .main-admin-container main {
   margin-left: 200px;
@@ -313,7 +321,6 @@ table {
 
 .main {
   background-color: #010e5d;
-  min-height: 100vh;
   display: flex;
   flex-direction: column; }
   .main * {
@@ -347,8 +354,7 @@ table {
     justify-content: center;
     align-items: center;
     flex-grow: 1; }
-    .main .content .container {
-      max-width: 800px;
+    .main .content .box {
       border: 8px solid #f0f0f1;
       border-radius: 2px;
       padding: 40px;
@@ -375,3 +381,78 @@ table {
         margin: 5px; }
         .main .content .slider-indicator ul li.active {
           opacity: 1; }
+
+.media {
+  background-color: #322278;
+  padding-top: 100px;
+  text-align: center; }
+  .media h1 {
+    color: #2fe48f;
+    border-bottom: 8px solid rgba(47, 228, 143, 0.5);
+    display: inline-block;
+    font-size: 6.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 3.5rem; }
+  .media h2 {
+    color: #f0f0f1;
+    font-size: 2.8em;
+    font-weight: 700;
+    line-height: 1.5em; }
+  .media .toggle-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; }
+    .media .toggle-buttons span {
+      font-size: 2rem;
+      text-transform: uppercase;
+      background-color: #f0f0f1;
+      color: #111111;
+      margin: 0;
+      padding: 15px 60px;
+      font-weight: 600; }
+      .media .toggle-buttons span.active {
+        background-color: #3ce391;
+        color: #f0f0f1; }
+      .media .toggle-buttons span.left {
+        border-radius: 30px 0 0 30px; }
+      .media .toggle-buttons span.right {
+        border-radius: 0 30px 30px 0; }
+  .media .media-list hr {
+    margin: 0;
+    border-color: rgba(255, 255, 255, 0.6); }
+  .media .media-list li .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5px;
+    color: rgba(255, 255, 255, 0.6); }
+  .media .media-list .info {
+    flex-grow: 1;
+    text-align: left;
+    font-family: serif;
+    margin: 0 20px; }
+    .media .media-list .info h2 {
+      font-size: 2.6rem;
+      opacity: 1; }
+    .media .media-list .info h3 {
+      font-size: 2rem; }
+  .media .media-list svg {
+    font-size: 4rem; }
+  .media .media-list button {
+    background-color: #f0f0f1;
+    border-radius: 20px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.3rem;
+    border: none; }
+  .media .media-list li.active {
+    background-color: rgba(255, 255, 255, 0.05); }
+    .media .media-list li.active .info h2 {
+      color: #3ce391; }
+    .media .media-list li.active svg {
+      color: #3ce391; }
+    .media .media-list li.active button {
+      background-color: #3ce391;
+      color: #f0f0f1; }

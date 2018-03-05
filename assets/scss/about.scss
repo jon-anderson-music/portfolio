@@ -1,5 +1,4 @@
 .about {
-  min-height: 100vh;
   background-color: $color-white;
   display: flex;
   .description {
@@ -10,18 +9,10 @@
     flex-direction: column;
     justify-content: center;
     h1 {
-      color: $color-secondary-dark;
-      border-bottom: 8px solid $color-secondary-light;
-      display: inline-block;
-      font-size: 6rem;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin: 0 0 3.5rem;
+      @include sectionTitle(249, 29, 87);
     }
     h2 {
-      font-size: 2.8em;
-      font-weight: 700;
-      line-height: 1.5em;
+      @include sectionSubtitle($color-black);
     }
     p {
       font-size: 2.2rem;
