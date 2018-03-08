@@ -147,6 +147,7 @@ $media-bg: #322278;
 $color-black: #111111;
 $color-white: #f0f0f1;
 $color-gray: #2c273e;
+$color-gray-hover: #3c374e;
 
 @mixin sectionTitle($r, $g, $b) {
   color: rgba($r, $g, $b, 1);
