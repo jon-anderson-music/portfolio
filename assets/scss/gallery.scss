@@ -1,0 +1,57 @@
+.gallery {
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    @include sectionTitle(32, 44, 73);
+  }
+  .photos {
+    display: flex;
+    flex-wrap: wrap;
+    width: 900px;
+    justify-content: center;
+    margin-top: 120px;
+    .photo {
+      background: navy;
+      width: 140px;
+      height: 140px;
+      margin: -30px 40px 0;
+      transform: rotate(45deg);
+      position: relative;
+      overflow: hidden;
+    }
+    .photo:before {
+      content: "";
+      background-size: cover;
+      position: absolute;
+      transform: rotate(-45deg);
+      height: 200px;
+      width: 200px;
+      top: -30px;
+      left: -30px;
+    }
+    .photo1:before {
+      background-image: url("/images/sample-thumbnail-1.jpeg");
+    }
+    .photo2:before {
+      background-image: url("/images/sample-thumbnail-2.jpeg");
+    }
+    .photo3:before {
+      background-image: url("/images/sample-thumbnail-3.jpeg");
+    }
+    .photo4:before {
+      background-image: url("/images/sample-thumbnail-4.jpeg");
+    }
+    .photo5:before {
+      background-image: url("/images/sample-thumbnail-5.jpeg");
+    }
+    .photo6:before {
+      background-image: url("/images/sample-thumbnail-6.jpeg");
+    }
+    .photo7:before {
+      background-image: url("/images/sample-thumbnail-7.jpeg");
+    }
+  }
+}

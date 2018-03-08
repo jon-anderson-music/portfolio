@@ -106,7 +106,7 @@ section {
   display: block;
 }
 html {
-  font-size: 10px;
+  font-size: 8px;
 }
 body {
   line-height: 1;
@@ -142,9 +142,11 @@ $color-secondary: #fc544e;
 $color-secondary-dark: #fc1454;
 $color-secondary-light: #fecdce;
 $color-tertiary: #3ce391;
+$color-contact: #402061;
 $media-bg: #322278;
 $color-black: #111111;
 $color-white: #f0f0f1;
+$color-gray: #2c273e;
 
 @mixin sectionTitle($r, $g, $b) {
   color: rgba($r, $g, $b, 1);
@@ -158,7 +160,7 @@ $color-white: #f0f0f1;
 
 @mixin sectionSubtitle($color) {
   color: $color;
-  font-size: 2.8em;
+  font-size: 2.5em;
   font-weight: 700;
   line-height: 1.5em;
 }
@@ -188,14 +190,17 @@ $color-white: #f0f0f1;
 .page {
   min-height: 100vh;
   box-sizing: border-box;
+  padding: 20px;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 @import "./about";
 @import "./admin";
+@import "./contact";
+@import "./gallery";
 @import "./main";
 @import "./media";
