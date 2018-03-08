@@ -12,3 +12,9 @@ window.addEventListener('scroll', () => {
     navbar.style.padding = '30px 160px';
   }
 });
+
+navbar.addEventListener('click', (evt) => {
+  const { link } = evt.target.dataset;
+  const page = document.getElementById(link);
+  page.scrollIntoView({ behavior: 'smooth' });
+});

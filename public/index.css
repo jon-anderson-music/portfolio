@@ -452,7 +452,8 @@ table {
     .main ul li {
       margin-left: 20px;
       font-size: 1.6rem;
-      font-weight: 600; }
+      font-weight: 600;
+      cursor: pointer; }
       .main ul li a {
         text-decoration: none; }
   .main .content {
