@@ -1,5 +1,4 @@
 class Helpers {
-
   activateOne(arr, index, key, val) {
     arr.forEach((item, i) => {
       if (index === i) {
@@ -7,7 +6,7 @@ class Helpers {
       } else {
         item[key] = !val;
       }
-    })
+    });
   }
 
   authRequired(req, res, next) {
@@ -17,7 +16,6 @@ class Helpers {
       res.redirect('/admin/login');
     }
   }
-
 }
 
 module.exports = Helpers;

@@ -75,4 +75,68 @@
       }
     }
   }
+  .media-player {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: $color-black;
+    font-size: 1.5rem;
+    padding: 10px;
+    box-sizing: border-box;
+    .controls {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: $color-white;
+      font-size: 2rem;
+      margin: 0 20px;
+      i {
+        margin: 0 5px;
+        cursor: pointer;
+      }
+      .play-pause {
+        font-size: 4rem;
+      }
+    }
+    .progress-bar {
+      flex-grow: 1;
+      display: flex;
+      .time-start,
+      .time-end {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .empty-bar {
+        flex-grow: 1;
+        background-color: rgba(255, 255, 255, 0.5);
+        height: 8px;
+        border-radius: 4px;
+        margin: 0 20px;
+      }
+      .bar {
+        background-color: limegreen;
+        height: 8px;
+        width: 0%;
+        border-radius: 4px;
+        display: flex;
+        transition: 1000ms;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+    .details {
+      margin: 0 20px;
+      h5 {
+        font-size: 1.8rem;
+        opacity: 0.8;
+      }
+      h6 {
+        font-size: 1.4rem;
+        opacity: 0.5;
+      }
+    }
+  }
 }
