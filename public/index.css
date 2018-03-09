@@ -133,6 +133,10 @@ table {
 .sr-only {
   display: none; }
 
+html,
+body {
+  background-color: #111111; }
+
 .page {
   min-height: 100vh;
   box-sizing: border-box; }
@@ -375,6 +379,7 @@ table {
 
 .gallery {
   min-height: 100vh;
+  background-color: #f0f0f1;
   text-align: center;
   display: flex;
   flex-direction: column;

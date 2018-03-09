@@ -149,6 +149,11 @@ $color-white: #f0f0f1;
 $color-gray: #2c273e;
 $color-gray-hover: #3c374e;
 
+html,
+body {
+  background-color: $color-black;
+}
+
 @mixin sectionTitle($r, $g, $b) {
   color: rgba($r, $g, $b, 1);
   border-bottom: 8px solid rgba($r, $g, $b, 0.5);
