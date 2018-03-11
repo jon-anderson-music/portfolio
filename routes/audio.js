@@ -1,6 +1,6 @@
 const express = require('express');
 const Helpers = require('../helpers');
-const Photo = require('../models/photo');
+const Audio = require('../models/audio');
 const cloudinary = require('cloudinary');
 
 const router = express.Router();
@@ -9,32 +9,33 @@ const helpers = new Helpers();
 const { authRequired } = helpers;
 
 router.get('/', authRequired, (req, res) => {
-  Photo.find({}, (err, photos) => {
+  Audio.find({}, (err, audioFiles) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.status(200).render('admin/photo', { active: 'Photos', photos });
+    res.status(200).render('admin/audio', { active: 'Audios', audioFiles });
   });
 });
 
 router.post('/', authRequired, (req, res) => {
   console.log('BODY', req.body);
-  cloudinary.v2.uploader.upload(req.body.image, (err, result) => {
+  cloudinary.v2.uploader.upload(req.body.audio, {
+    resource_type: 'video',
+  }, (err, result) => {
     if (err) {
       console.error('ERROR UPLOADING TO CLOUDINARY', err);
     } else {
       console.log('RESULT', result);
-      const image = {
+      const audioFile = {
         title: req.body.title,
-        description: req.body.description,
         url: result.url,
       };
-      Photo.create(image, (err, photo) => {
-        if (err) {
+      Audio.create(audioFile, (error, audio) => {
+        if (error) {
           console.error('ERROR SAVING PHOTO', err);
         } else {
-          console.log('THE PHOTO SAVED', photo);
-          res.json(photo);
+          console.log('THE PHOTO SAVED', audio);
+          res.json(audio);
         }
       });
     }

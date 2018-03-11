@@ -133,10 +133,6 @@ table {
 .sr-only {
   display: none; }
 
-html,
-body {
-  background-color: #111111; }
-
 .page {
   min-height: 100vh;
   box-sizing: border-box; }
@@ -536,7 +532,7 @@ body {
         width: 0%;
         border-radius: 4px;
         display: flex;
-        transition: 1000ms;
+        transition: 50ms;
         align-items: center;
         justify-content: flex-end; }
     .main .media-player .details {

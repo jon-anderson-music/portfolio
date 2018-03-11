@@ -25,7 +25,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-navbar.addEventListener('click', evt => {
+navbar.addEventListener('click', (evt) => {
   const { link } = evt.target.dataset;
   const page = document.getElementById(link);
   page.scrollIntoView({ behavior: 'smooth' });
@@ -51,6 +51,7 @@ playPauseBtn.addEventListener('click', () => {
       timeStart.textContent = timeElapsed;
       timeEnd.textContent = timeRemaining;
       bar.style.width = `${percentageDone}%`;
-    }, 1000);
+    }, 50);
   }
 });
+
