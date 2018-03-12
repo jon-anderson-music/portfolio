@@ -136,6 +136,10 @@ table {
   display: none;
 }
 
+.hide, .hidden-input {
+  display: none;
+}
+
 $color-primary: #010e5d;
 $color-primary-light: #5182de;
 $color-secondary: #fc544e;

@@ -1,9 +1,9 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const photoSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
@@ -11,11 +11,10 @@ const photoSchema = new mongoose.Schema({
   },
   url: {
     type: String,
-    required: true,
-    unique: true
-  }
-})
+    required: false,
+  },
+});
 
-const Photo = mongoose.model('Photo', photoSchema)
+const Photo = mongoose.model('Photo', photoSchema);
 
 module.exports = Photo;
