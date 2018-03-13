@@ -27,6 +27,15 @@ router.get('/', authRequired, (req, res) => {
     if (err) {
       res.status(500).send(err);
     }
+    photos.sort((a, b) => {
+      if (a.position < b.position) {
+        return -1;
+      }
+      if (a.position > b.position) {
+        return 1;
+      }
+      return 0;
+    });
     res.status(200).render('admin/photo', { active: 'Photos', photos });
   });
 });

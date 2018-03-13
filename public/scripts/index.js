@@ -1,7 +1,7 @@
 const audioPlayer = document.querySelector('audio');
 const navbar = document.querySelector('.navbar');
 const playPauseBtn = document.querySelector('.play-pause');
-const photos = document.querySelectorAll('.photo');
+const photos = document.querySelectorAll('.gallery-photo');
 const bar = document.querySelector('.bar');
 const timeStart = document.querySelector('.time-start');
 const timeEnd = document.querySelector('.time-end');
@@ -56,10 +56,21 @@ playPauseBtn.addEventListener('click', () => {
   }
 });
 
-photos.forEach((photo) => {
-  const { id } = photo;
-  console.log('ID', id, photo)
-  const before = photo.parentElement.querySelector(':before');
-  console.log('before', before)
-  photo.style.backgroundImage = id;
-})
+let styleContent = '';
+
+photos.forEach((photo, index) => {
+  console.log('PHOTO', photo)
+  const { id: url } = photo;
+  styleContent += `
+  .photo${index + 1}:before {
+    background-image: url("${url}");
+  }  
+  `
+});
+
+console.log('STYLE CONTENT', styleContent)
+
+const styleTag = document.createElement('style');
+styleTag.textContent = styleContent;
+
+document.body.appendChild(styleTag)

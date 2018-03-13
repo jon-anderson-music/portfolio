@@ -298,6 +298,18 @@ table {
     text-align: center;
     font-size: 20px;
     font-weight: 500; }
+  .main-admin-container .photos-page .photo-gallery .photo-delete {
+    background-color: #FC0D1C;
+    color: #ffffff;
+    border: none;
+    font-size: 2.0rem;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 250ms; }
+    .main-admin-container .photos-page .photo-gallery .photo-delete:hover {
+      background-color: #7D0308; }
   .main-admin-container .photos-page .photo-gallery input, .main-admin-container .photos-page .photo-gallery textarea {
     border: none;
     background-color: inherit;
@@ -434,20 +446,6 @@ table {
       width: 200px;
       top: -30px;
       left: -30px; }
-    .gallery .photos .photo1:before {
-      background-image: url("/images/sample-thumbnail-1.jpeg"); }
-    .gallery .photos .photo2:before {
-      background-image: url("/images/sample-thumbnail-2.jpeg"); }
-    .gallery .photos .photo3:before {
-      background-image: url("/images/sample-thumbnail-3.jpeg"); }
-    .gallery .photos .photo4:before {
-      background-image: url("/images/sample-thumbnail-4.jpeg"); }
-    .gallery .photos .photo5:before {
-      background-image: url("/images/sample-thumbnail-5.jpeg"); }
-    .gallery .photos .photo6:before {
-      background-image: url("/images/sample-thumbnail-6.jpeg"); }
-    .gallery .photos .photo7:before {
-      background-image: url("/images/sample-thumbnail-7.jpeg"); }
 
 .main {
   background-color: #010e5d;

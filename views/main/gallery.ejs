@@ -3,10 +3,13 @@
     <h1>Photos</h1>
     <div class="photos">
       <% photos.forEach((photo, index) => { %>
-        <% const className = `photo photo${index + 1}` %>
-          <div class="<%= className %>" id="<%= photo.url %>" data-image="<%= photo.url %>"></div>
-          <% }) %>
-            <!-- <div class="photo photo1"></div>
+        <% if (index < 7) { %>
+          <% console.log('THE PHOTO', photo) %>
+            <% const className = `gallery-photo photo photo${index + 1}` %>
+              <div class="<%= className %>" id="<%= photo.url %>"></div>
+              <% } %>
+                <% }) %>
+                  <!-- <div class="photo photo1"></div>
       <div class="photo photo2"></div>
       <div class="photo photo3"></div>
       <div class="photo photo4"></div>

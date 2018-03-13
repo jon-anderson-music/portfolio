@@ -128,6 +128,20 @@ $admin-nav-width: 200px;
         font-size: 20px;
         font-weight: 500;
       }
+      .photo-delete {
+        background-color: #FC0D1C;
+        color: #ffffff;
+        border: none;
+        font-size: 2.0rem;
+        text-transform: uppercase;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 250ms;
+        &:hover {
+          background-color: #7D0308;
+        }
+      }
       input, textarea {
         border: none;
         background-color: inherit;
