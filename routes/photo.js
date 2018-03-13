@@ -11,7 +11,6 @@ const { authRequired } = helpers;
 const updatePhotoById = (image, id, res) => {
   const options = { public_id: id };
   cloudinary.uploader.upload(image, (result) => {
-    console.log('RESULT', result);
     const updateObj = { url: result.url };
     Photo.findByIdAndUpdate(id, updateObj, { new: true }, (error, photo) => {
       if (error) {
@@ -33,7 +32,6 @@ router.get('/', authRequired, (req, res) => {
 });
 
 router.post('/', authRequired, (req, res) => {
-  console.log('BODY', req.body);
   const image = {
     title: req.body.title,
     description: req.body.description,
@@ -43,7 +41,6 @@ router.post('/', authRequired, (req, res) => {
     if (err) {
       console.error('ERROR SAVING PHOTO', err);
     } else {
-      console.log('THE PHOTO SAVED', photo);
       const { _id: id } = photo;
       updatePhotoById(req.body.image, id, res);
     }
@@ -55,9 +52,6 @@ router.post('/:id/edit/image', authRequired, (req, res) => {
 });
 
 router.post('/:id/edit/:property', authRequired, (req, res) => {
-  console.log('HITTING THE PUT ROUTE');
-  console.log('param', req.params);
-  console.log('BODY', req.body);
   const { id, property } = req.params;
   const updateObj = {};
   updateObj[property] = req.body.property;

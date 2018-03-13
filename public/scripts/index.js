@@ -1,6 +1,7 @@
 const audioPlayer = document.querySelector('audio');
 const navbar = document.querySelector('.navbar');
 const playPauseBtn = document.querySelector('.play-pause');
+const photos = document.querySelectorAll('.photo');
 const bar = document.querySelector('.bar');
 const timeStart = document.querySelector('.time-start');
 const timeEnd = document.querySelector('.time-end');
@@ -55,3 +56,10 @@ playPauseBtn.addEventListener('click', () => {
   }
 });
 
+photos.forEach((photo) => {
+  const { id } = photo;
+  console.log('ID', id, photo)
+  const before = photo.parentElement.querySelector(':before');
+  console.log('before', before)
+  photo.style.backgroundImage = id;
+})
