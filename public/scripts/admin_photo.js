@@ -6,6 +6,9 @@ const imgPreview = document.querySelector('.img-preview');
 const imgUploadHandler = document.querySelector('.image-upload-handler');
 const photoDescriptions = document.querySelectorAll('.photo-description');
 const photoInputs = document.querySelectorAll('.photo-input');
+const photoPositions = document.querySelectorAll('.photo-position');
+const photoDeleteBtns = document.querySelectorAll('.photo-delete');
+const positionInput = document.querySelector('.position');
 const submitBtn = document.querySelector('button');
 const titleInput = document.querySelector('.title');
 
@@ -43,6 +46,7 @@ function submit(e) {
     const image = fileReader.result;
     const title = titleInput.value;
     const description = descriptionInput.value;
+    const position = positionInput.value;
     fetch('/admin/photo', {
       credentials: 'include',
       headers: {
@@ -53,6 +57,7 @@ function submit(e) {
         title,
         description,
         image,
+        position,
       }),
     }).then((response) => {
       if (response.status === 200) {
@@ -78,7 +83,23 @@ photoInputs.forEach((input) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      method: 'PUT',
+      method: 'POST',
+      body: JSON.stringify({
+        property: evt.target.value,
+      }),
+    });
+  });
+});
+
+photoPositions.forEach((input) => {
+  input.addEventListener('blur', (evt) => {
+    const parentId = input.parentElement.id;
+    fetch(`/admin/photo/${parentId}/edit/position`, {
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
       body: JSON.stringify({
         property: evt.target.value,
       }),
@@ -96,7 +117,7 @@ photoDescriptions.forEach((description) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      method: 'PUT',
+      method: 'POST',
       body: JSON.stringify({
         property: evt.target.value,
       }),
@@ -125,7 +146,7 @@ hiddenInputs.forEach((input) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        method: 'PUT',
+        method: 'POST',
         body: JSON.stringify({
           image: result,
         }),
@@ -139,3 +160,22 @@ hiddenInputs.forEach((input) => {
     fileReader.readAsDataURL(input.files[0]);
   });
 });
+
+photoDeleteBtns.forEach((btn) => {
+  btn.addEventListener('click', (evt) => {
+    const parentId = btn.parentElement.id;
+    fetch(`/admin/photo/${parentId}/delete`, {
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    }).then((response) => {
+      if (response.status === 200) {
+        window.location.reload()
+      }
+    }).catch((err) => {
+      throw err;
+    })
+  })
+})

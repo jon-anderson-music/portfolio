@@ -9,21 +9,18 @@ const helpers = new Helpers();
 const { authRequired } = helpers;
 
 const updatePhotoById = (image, id, res) => {
-  cloudinary.v2.uploader.upload(image, { public_id: id }, (err, result) => {
-    if (err) {
-      console.error('ERROR UPLOADING TO CLOUDINARY', err);
-    } else {
-      console.log('RESULT', result);
-      const updateObj = { url: result.url };
-      Photo.findByIdAndUpdate(id, updateObj, { new: true }, (error, photo) => {
-        if (error) {
-          throw error;
-        } else {
-          res.json(photo);
-        }
-      });
-    }
-  });
+  const options = { public_id: id };
+  cloudinary.uploader.upload(image, (result) => {
+    console.log('RESULT', result);
+    const updateObj = { url: result.url };
+    Photo.findByIdAndUpdate(id, updateObj, { new: true }, (error, photo) => {
+      if (error) {
+        throw error;
+      } else {
+        res.redirect('/admin/photo');
+      }
+    });
+  }, options);
 };
 
 router.get('/', authRequired, (req, res) => {
@@ -40,6 +37,7 @@ router.post('/', authRequired, (req, res) => {
   const image = {
     title: req.body.title,
     description: req.body.description,
+    position: req.body.position,
   };
   Photo.create(image, (err, photo) => {
     if (err) {
@@ -52,11 +50,11 @@ router.post('/', authRequired, (req, res) => {
   });
 });
 
-router.put('/:id/edit/image', authRequired, (req, res) => {
+router.post('/:id/edit/image', authRequired, (req, res) => {
   updatePhotoById(req.body.image, req.params.id, res);
 });
 
-router.put('/:id/edit/:property', authRequired, (req, res) => {
+router.post('/:id/edit/:property', authRequired, (req, res) => {
   console.log('HITTING THE PUT ROUTE');
   console.log('param', req.params);
   console.log('BODY', req.body);
@@ -67,10 +65,22 @@ router.put('/:id/edit/:property', authRequired, (req, res) => {
     if (err) {
       throw err;
     } else {
-      res.json(photo);
+      res.redirect('/admin/photo');
     }
   });
 });
 
+router.post('/:id/delete', authRequired, (req, res) => {
+  const { id } = req.params;
+  Photo.findByIdAndRemove(id, (err) => {
+    if (err) {
+      console.error('ERROR DELETING PHOTO', err);
+    } else {
+      cloudinary.uploader.destroy(id, (result) => {
+        res.redirect('/admin/photo');
+      });
+    }
+  });
+});
 
 module.exports = router;

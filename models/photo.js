@@ -9,6 +9,9 @@ const photoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  position: {
+    type: Number,
+  },
   url: {
     type: String,
     required: false,

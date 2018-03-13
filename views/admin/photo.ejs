@@ -9,6 +9,7 @@
         <div>
           <input class="title" type="text" name="title" placeholder="Title" />
           <textarea class="description" type="text" name="description" placeholder="Description"></textarea>
+          <input class="position" type="number" name="position" placeholder="Position" />
         </div>
 
         <div class="sr-only">
@@ -30,11 +31,9 @@
 
       </div>
 
-
     </div>
 
     <div class="photo-gallery">
-
 
       <% photos.forEach((photo, index) => { %>
         <div class="photo" id="<%= photo.id %>">
@@ -46,6 +45,8 @@
           </div>
           <input class="photo-input" value="<%= photo.title %>" />
           <textarea class="photo-description"><%= photo.description %></textarea>
+          <input class="photo-position" value="<%= photo.position %>" />
+          <button class="photo-delete">DELETE</button>
         </div>
         <% }) %>
 
