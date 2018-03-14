@@ -462,7 +462,8 @@ table {
     padding: 30px 160px;
     justify-content: space-between;
     align-items: center;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    z-index: 100; }
     .main nav h2 {
       border-top: 3px solid #f0f0f1;
       border-bottom: 3px solid #f0f0f1;
