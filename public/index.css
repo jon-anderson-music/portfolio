@@ -177,6 +177,25 @@ table {
     flex-direction: column;
     justify-content: flex-end; }
 
+.submit-button {
+  background-color: #010e5d;
+  color: #fff;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 300px;
+  cursor: pointer;
+  transition: 300ms;
+  outline: none; }
+  .submit-button:hover {
+    background-color: #5182de; }
+  .submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed; }
+
 .main-admin-container section.side-nav {
   background-color: #010e5d;
   color: #f0f0f1;
@@ -314,6 +333,33 @@ table {
     border: none;
     background-color: inherit;
     width: 100%; }
+
+.audio-files {
+  display: flex;
+  flex-wrap: wrap; }
+  .audio-files > div {
+    width: 40%;
+    flex-grow: 1;
+    margin: 20px;
+    min-width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px; }
+  .audio-files .audio-title {
+    font-size: 2rem; }
+  .audio-files .audio-delete {
+    background-color: #FC0D1C;
+    color: #ffffff;
+    border: none;
+    font-size: 2.0rem;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 250ms; }
+    .audio-files .audio-delete:hover {
+      background-color: #7D0308; }
 
 .login {
   padding: 50px;

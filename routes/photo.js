@@ -68,7 +68,7 @@ router.post('/:id/edit/:property', authRequired, (req, res) => {
     if (err) {
       throw err;
     } else {
-      res.redirect('/admin/photo');
+      res.json(photo);
     }
   });
 });

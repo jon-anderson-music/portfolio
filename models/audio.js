@@ -1,16 +1,15 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const audioSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   url: {
     type: String,
-    required: true
-  }
-})
+  },
+});
 
-const Audio = mongoose.model('Audio', audioSchema)
+const Audio = mongoose.model('Audio', audioSchema);
 
 module.exports = Audio;

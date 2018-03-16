@@ -18,14 +18,18 @@
 
     </div>
 
-    <% audioFiles.forEach((audio) => { %>
-      <div>
-        <h1>
-          <%= audio.title %>
-        </h1>
-        <audio src="<%= audio.url %>" controls></audio>
-      </div>
-      <% }) %>
+    <div class="audio-files">
+
+      <% audioFiles.forEach((audio) => { %>
+        <div class="audio-file" id="<%= audio.id %>">
+          <input class="audio-title" value="<%= audio.title %>" />
+          <input class="audio-file-edit" type="file" />
+          <audio src="<%= audio.url %>" controls></audio>
+          <button class="audio-delete">DELETE</button>
+        </div>
+        <% }) %>
+
+    </div>
 
   </main>
 
