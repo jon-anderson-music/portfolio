@@ -7,52 +7,26 @@
       <span class="right">Video</span>
     </div>
     <div class="media-list">
-      <ul>
-        <li>
-          <div class="wrapper">
-            <div class="play-pause">
-              <i class="far fa-play-circle"></i>
+      <ul class="audio-list">
+        <% audios.forEach((audio) => { %>
+          <li>
+            <div class="wrapper" data-url="<%= audio.url %>">
+              <div class="play-pause">
+                <i class="far fa-play-circle"></i>
+              </div>
+              <div class="info">
+                <h2>
+                  <%= audio.title %>
+                </h2>
+                <h3>Jon Anderson</h3>
+              </div>
+              <div class="action">
+                <button>Share This</button>
+              </div>
             </div>
-            <div class="info">
-              <h2>The Title</h2>
-              <h3>The Subtitle</h3>
-            </div>
-            <div class="action">
-              <button>Share This</button>
-            </div>
-          </div>
-          <hr>
-        </li>
-        <li class="active">
-          <div class="wrapper">
-            <div class="play-pause">
-              <i class="far fa-stop-circle"></i>
-            </div>
-            <div class="info">
-              <h2>The Title</h2>
-              <h3>The Subtitle</h3>
-            </div>
-            <div class="action">
-              <button>Share This</button>
-            </div>
-          </div>
-          <hr>
-        </li>
-        <li>
-          <div class="wrapper">
-            <div class="play-pause">
-              <i class="far fa-play-circle"></i>
-            </div>
-            <div class="info">
-              <h2>The Title</h2>
-              <h3>The Subtitle</h3>
-            </div>
-            <div class="action">
-              <button>Share This</button>
-            </div>
-          </div>
-          <hr>
-        </li>
+            <hr>
+          </li>
+          <% }) %>
       </ul>
     </div>
   </div>

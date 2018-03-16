@@ -40,6 +40,7 @@ router.get('/', (req, res) => {
     getAllPhotos,
   ]).then((values) => {
     [data.audios, data.photos] = values;
+    console.log('AUDIOS', data.audios);
     res.render('main/index', data);
   });
 });

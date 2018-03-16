@@ -35,6 +35,9 @@
     }
   }
   .media-list {
+    margin-top: 20px;
+    height: 250px;
+    overflow: scroll;
     hr {
       margin: 0;
       border-color: rgba(255, 255, 255, 0.6);

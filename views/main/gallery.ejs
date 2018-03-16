@@ -7,11 +7,10 @@
           <% console.log('THE PHOTO', photo) %>
             <% const className = `gallery-photo photo photo${index + 1}` %>
               <% const url = photo.url.split('/upload').join('/upload/w_200,h_200,c_fill') %>
-                <% console.log('THE NEW URL', url) %>
-                  <div class="<%= className %>" id="<%= url %>"></div>
-                  <% } %>
-                    <% }) %>
-                      <!-- <div class="photo photo1"></div>
+                <div class="<%= className %>" id="<%= url %>"></div>
+                <% } %>
+                  <% }) %>
+                    <!-- <div class="photo photo1"></div>
       <div class="photo photo2"></div>
       <div class="photo photo3"></div>
       <div class="photo photo4"></div>
