@@ -54,7 +54,7 @@
     </div>
   </div>
   <audio controls>
-    <source src="http://res.cloudinary.com/dsjyqaulz/video/upload/v1520776052/sample_lucrhd.m4a" type="audio/mpeg" />
+    <source src="<%= audios[0].url %>" type="audio/mpeg" />
   </audio>
   <div class="media-player">
     <div class="controls">
@@ -72,8 +72,10 @@
       <div class="time-end">--:--</div>
     </div>
     <div class="details">
-      <h5 class="title">The Title</h5>
-      <h6 class="sub-title">The Band</h6>
+      <h5 class="title">
+        <%= audios[0].title %>
+      </h5>
+      <h6 class="sub-title">Jon Anderson</h6>
     </div>
   </div>
 </div>

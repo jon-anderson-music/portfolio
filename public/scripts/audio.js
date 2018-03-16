@@ -1,6 +1,7 @@
 const audioList = document.querySelector('.audio-list');
 const audioPlayer = document.querySelector('audio');
 const bar = document.querySelector('.bar');
+const playerDetails = document.querySelector('.media-player .details');
 const playPauseBtn = document.querySelector('.play-pause');
 const timeStart = document.querySelector('.time-start');
 const timeEnd = document.querySelector('.time-end');
@@ -23,7 +24,8 @@ const deactivateList = () => {
   });
 };
 
-const loadAudio = (url) => {
+const loadAudio = (title, url) => {
+  playerDetails.children[0].textContent = title;
   audioPlayer.src = url;
 };
 
@@ -65,9 +67,9 @@ audioList.addEventListener('click', (evt) => {
       const { children } = item;
       const playButtonWrapper = item.children[0].children[0];
       item.classList.add('active');
-      const { url } = children[0].dataset;
+      const { title, url } = children[0].dataset;
       if (audioPlayer.src !== url) {
-        loadAudio(url);
+        loadAudio(title, url);
       }
       if (playButtonClicked) {
         togglePlay();

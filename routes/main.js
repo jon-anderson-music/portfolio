@@ -4,37 +4,37 @@ const Photo = require('../models/photo');
 
 const router = express.Router();
 
-const getAllAudio = new Promise((res, rej) => {
-  Audio.find({}, (err, audios) => {
-    if (err) {
-      rej(err);
-    } else {
-      res(audios);
-    }
-  });
-});
-
-const getAllPhotos = new Promise((res, rej) => {
-  Photo.find({}, (err, photos) => {
-    if (err) {
-      rej(err);
-    } else {
-      photos.sort((a, b) => {
-        if (a.position < b.position) {
-          return -1;
-        }
-        if (a.position > b.position) {
-          return 1;
-        }
-        return 0;
-      });
-      res(photos);
-    }
-  });
-});
-
 router.get('/', (req, res) => {
   const data = {};
+  const getAllAudio = new Promise((res, rej) => {
+    Audio.find({}, (err, audios) => {
+      if (err) {
+        rej(err);
+      } else {
+        res(audios);
+      }
+    });
+  });
+
+  const getAllPhotos = new Promise((res, rej) => {
+    Photo.find({}, (err, photos) => {
+      if (err) {
+        rej(err);
+      } else {
+        photos.sort((a, b) => {
+          if (a.position < b.position) {
+            return -1;
+          }
+          if (a.position > b.position) {
+            return 1;
+          }
+          return 0;
+        });
+        res(photos);
+      }
+    });
+  });
+
   Promise.all([
     getAllAudio,
     getAllPhotos,
