@@ -1,0 +1,40 @@
+<% include partials/_header_logged_in %>
+
+  <main>
+
+    <div class="bio-form">
+
+      <div class="paragraph">
+        <label for="paragraph">Paragraph:</label>
+        <textarea name="paragarph" rows="10"></textarea>
+      </div>
+
+      <div class="order">
+        <label for="order">Order:</label>
+        <input type="number" name="order" />
+      </div>
+
+      <button class="submit-button">Submit</button>
+
+    </div>
+
+    <div class="paragraphs">
+
+      <% paragraphs.forEach((para, index) => { %>
+        <div class="para" id="<%= para.id %>">
+          <textarea rows="10" class="display-para">
+            <%= para.paragraph.trim() %>
+          </textarea>
+          <input class="display-order" type="number" value="<%= para.order %>" />
+
+          <button class="bio-delete delete-button">DELETE</button>
+        </div>
+        <% }) %>
+
+    </div>
+
+  </main>
+
+  <script src="/scripts/admin_bio.js" type="text/javascript"></script>
+
+  <% include partials/_footer %>

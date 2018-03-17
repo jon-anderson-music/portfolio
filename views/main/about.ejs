@@ -2,11 +2,18 @@
   <div class="description">
     <div class="about-content">
       <h1>About Me</h1>
-      <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, autem repudiandae!</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, tenetur. Reiciendis magnam blanditiis rerum eligendi
-        omnis, harum vel nesciunt aspernatur mollitia ratione architecto quasi possimus recusandae vero voluptas suscipit
-        animi.
-      </p>
+
+      <% paragraphs.forEach((para, index) => { %>
+        <% if (index === 0) { %>
+          <h2>
+            <%= para.paragraph.trim() %>
+          </h2>
+          <% } else { %>
+            <p>
+              <%= para.paragraph.trim() %>
+            </p>
+            <% } %>
+              <% }) %>
     </div>
   </div>
   <div class="photo">

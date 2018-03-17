@@ -48,16 +48,6 @@ router.post('/', authRequired, (req, res) => {
       updateAudioFileById(req.body.audio, id, res);
     }
   });
-
-  // cloudinary.v2.uploader.upload(req.body.audio, {
-  //   resource_type: 'video',
-  // }, (err, result) => {
-  //   if (err) {
-  //     console.error('ERROR UPLOADING TO CLOUDINARY', err);
-  //   } else {
-  //     console.log('RESULT', result);
-  //   }
-  // });
 });
 
 router.post('/:id/edit/audio', authRequired, (req, res) => {
@@ -84,17 +74,11 @@ router.post('/:id/delete', authRequired, (req, res) => {
     if (err) {
       console.error('ERROR DELETING PHOTO', err);
     } else {
-      const options = { public_id: [id], resource_type: 'video' };
-
-      // cloudinary.uploader.destroy(options, (result) => {
-      // });
-
       cloudinary.api.delete_resources([id], (result) => {
         res.redirect('/admin/audio');
       }, { resource_type: 'video' });
     }
   });
 });
-
 
 module.exports = router;

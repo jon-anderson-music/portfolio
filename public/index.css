@@ -214,6 +214,19 @@ table {
   100% {
     transform: rotate(360deg); } }
 
+.delete-button {
+  background-color: #FC0D1C;
+  color: #ffffff;
+  border: none;
+  font-size: 2.0rem;
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 250ms; }
+  .delete-button:hover {
+    background-color: #7D0308; }
+
 .main-admin-container section.side-nav {
   background-color: #010e5d;
   color: #f0f0f1;

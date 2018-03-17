@@ -37,6 +37,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use('/', require('./routes/main'));
 app.use('/admin', require('./routes/admin'));
 app.use('/admin', require('./routes/auth'));
+app.use('/admin/bio', require('./routes/bio'));
 app.use('/admin/photo', require('./routes/photo'));
 app.use('/admin/audio', require('./routes/audio'));
 

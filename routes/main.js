@@ -1,5 +1,6 @@
 const express = require('express');
 const Audio = require('../models/audio');
+const Bio = require('../models/bio');
 const Photo = require('../models/photo');
 
 const router = express.Router();
@@ -35,12 +36,31 @@ router.get('/', (req, res) => {
     });
   });
 
+  const getAllParas = new Promise((res, rej) => {
+    Bio.find({}, (err, paras) => {
+      if (err) {
+        rej(err);
+      } else {
+        paras.sort((a, b) => {
+          if (a.order < b.order) {
+            return -1;
+          }
+          if (a.order > b.order) {
+            return 1;
+          }
+          return 0;
+        });
+        res(paras);
+      }
+    });
+  });
+
   Promise.all([
     getAllAudio,
     getAllPhotos,
+    getAllParas,
   ]).then((values) => {
-    [data.audios, data.photos] = values;
-    console.log('AUDIOS', data.audios);
+    [data.audios, data.photos, data.paragraphs] = values;
     res.render('main/index', data);
   });
 });
