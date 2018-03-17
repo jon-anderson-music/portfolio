@@ -146,7 +146,8 @@ table {
 
 .about {
   background-color: #f0f0f1;
-  display: flex; }
+  display: flex;
+  position: relative; }
   .about .description {
     flex-grow: 1;
     padding-left: 15%;
@@ -176,6 +177,20 @@ table {
     display: flex;
     flex-direction: column;
     justify-content: flex-end; }
+  @media (max-width: 1000px) {
+    .about .photo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("./images/head-shot-no-bg.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      opacity: 0.2; }
+      .about .photo img {
+        display: none; } }
 
 .submit-button {
   background-color: #010e5d;
