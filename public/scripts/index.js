@@ -1,9 +1,12 @@
+const hamburger = document.querySelector('.hamburger');
 const navbar = document.querySelector('.navbar');
 
 navbar.addEventListener('click', (evt) => {
   const { link } = evt.target.dataset;
   const page = document.getElementById(link);
-  page.scrollIntoView({ behavior: 'smooth' });
+  if (page) {
+    page.scrollIntoView({ behavior: 'smooth' });
+  }
 });
 
 window.addEventListener('scroll', () => {
@@ -18,3 +21,7 @@ window.addEventListener('scroll', () => {
     navbar.style.padding = '30px 160px';
   }
 });
+
+hamburger.addEventListener('click', (evt) => {
+  console.log('HAMBURGER CLICKED')
+})
