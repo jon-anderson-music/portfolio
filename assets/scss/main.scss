@@ -42,6 +42,7 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    margin: 20px;
     .box {
       border: 8px solid $color-white;
       border-radius: 2px;
@@ -73,6 +74,18 @@
         &.active {
           opacity: 1;
         }
+      }
+    }
+    @media (max-width: 800px) {
+      .box {
+        border-width: 4px;
+      }
+      .header {
+        margin-top: -2em;
+        font-size: 4rem;
+      }
+      span {
+        font-size: 2rem;
       }
     }
   }

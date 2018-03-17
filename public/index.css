@@ -592,7 +592,8 @@ table {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1; }
+    flex-grow: 1;
+    margin: 20px; }
     .main .content .box {
       border: 8px solid #f0f0f1;
       border-radius: 2px;
@@ -620,6 +621,14 @@ table {
         margin: 5px; }
         .main .content .slider-indicator ul li.active {
           opacity: 1; }
+    @media (max-width: 800px) {
+      .main .content .box {
+        border-width: 4px; }
+      .main .content .header {
+        margin-top: -2em;
+        font-size: 4rem; }
+      .main .content span {
+        font-size: 2rem; } }
   .main .media-player {
     position: fixed;
     z-index: 10;
