@@ -2,16 +2,49 @@ const audioFileInput = document.querySelector('.audio-file-input');
 const audioFiles = document.querySelectorAll('.audio-file');
 const audioFileEditInputs = document.querySelectorAll('.audio-file-edit');
 const audioFileTitles = document.querySelectorAll('.audio-title');
+const audioForm = document.querySelector('.audio-form');
 const deleteButtons = document.querySelectorAll('.audio-delete');
+const errorMessage = document.createElement('p');
+const loader = document.createElement('div');
 const submitButton = document.querySelector('.submit-button');
 const titleInput = document.querySelector('.title-input');
+
+let hasError = false;
+
+const removeError = () => {
+  audioForm.removeChild(errorMessage)
+  hasError = false;
+}
+
+const showError = (message) => {
+  errorMessage.textContent = message;
+  errorMessage.style.color = 'red';
+  errorMessage.style.fontSize = '2rem';
+  audioForm.appendChild(errorMessage);
+  enableSubmitButton();
+  hasError = true;
+}
+
+const enableSubmitButton = () => {
+  submitButton.disabled = false;
+  submitButton.classList.remove('disabled');
+  submitButton.removeChild(loader)
+}
+
+loader.classList.add('loader');
+
 
 audioFileInput.addEventListener('change', (evt) => {
   console.log('FILE CHANGED')
 });
 
 submitButton.addEventListener('click', (evt) => {
-  console.log('BUTTON CLICKED')
+  if (hasError) {
+    removeError();
+  };
+  submitButton.disabled = true;
+  submitButton.classList.add('disabled');
+  submitButton.appendChild(loader)
   const audioFile = audioFileInput.files[0];
   const fileReader = new FileReader()
   fileReader.readAsDataURL(audioFileInput.files[0]);
@@ -33,8 +66,13 @@ submitButton.addEventListener('click', (evt) => {
       return response.json();
     }).then((result) => {
       console.log('RESULTS', result)
-      window.location.reload();
+      if (!result.errors) {
+        window.location.reload();
+      } else {
+        showError(result.message)
+      }
     }).catch((err) => {
+      showError('Something went wrong.')
       console.error('ERROR POSTING AUDIO', err)
     });
   });

@@ -41,6 +41,7 @@ router.post('/', authRequired, (req, res) => {
   Audio.create(audioFile, (error, audio) => {
     if (error) {
       console.error('ERROR SAVING PHOTO', error);
+      res.json(error);
     } else {
       console.log('THE PHOTO SAVED', audio);
       const { _id: id } = audio;
