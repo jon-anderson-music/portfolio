@@ -85,9 +85,12 @@ router.post('/:id/delete', authRequired, (req, res) => {
     } else {
       const options = { public_id: [id], resource_type: 'video' };
 
-      cloudinary.uploader.destroy(options, (result) => {
+      // cloudinary.uploader.destroy(options, (result) => {
+      // });
+
+      cloudinary.api.delete_resources([id], (result) => {
         res.redirect('/admin/audio');
-      });
+      }, { resource_type: 'video' });
     }
   });
 });
