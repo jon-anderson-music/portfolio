@@ -54,7 +54,9 @@
     </div>
   </div>
   <audio controls>
-    <source src="<%= audios[0].url %>" type="audio/mpeg" />
+    <% if (audios.length > 0) { %>
+      <source src="<%= audios[0].url %>" type="audio/mpeg" />
+      <% } %>
   </audio>
   <div class="media-player">
     <div class="controls">
@@ -73,7 +75,11 @@
     </div>
     <div class="details">
       <h5 class="title">
-        <%= audios[0].title %>
+        <% if (audios.length > 0) { %>
+          <%= audios[0].title %>
+            <% } else { %>
+              --
+              <% } %>
       </h5>
       <h6 class="sub-title">Jon Anderson</h6>
     </div>
