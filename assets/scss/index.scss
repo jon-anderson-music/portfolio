@@ -202,6 +202,39 @@ $color-gray-hover: #3c374e;
   margin: 0 auto;
 }
 
+.mobile-nav {
+  position: relative;
+  z-index: 100;
+  ul {
+    position: fixed;
+    // top: 0;
+    transition: 300ms;
+    transition-timing-function: ease-in;
+    left: 0;
+    box-sizing: border-box;
+    right: 0;
+    bottom: 100vh;
+    height: 100vh;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.9);
+    flex-direction: column;
+    padding: 120px 10% 10%;
+    align-items: stretch;
+    li {
+      cursor: pointer;
+      flex-grow: 1;
+      display: flex;
+      color: $color-white;
+      align-items: center;
+      max-height: 250px;
+      border-top: 1px solid $color-white;
+      padding: 10px;
+      font-size: 3rem;
+      font-weight: 200;
+    }
+  }
+}
+
 @import "./about";
 @import "./admin";
 @import "./contact";

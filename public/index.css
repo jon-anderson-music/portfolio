@@ -144,6 +144,35 @@ table {
   max-width: 900px;
   margin: 0 auto; }
 
+.mobile-nav {
+  position: relative;
+  z-index: 100; }
+  .mobile-nav ul {
+    position: fixed;
+    transition: 300ms;
+    transition-timing-function: ease-in;
+    left: 0;
+    box-sizing: border-box;
+    right: 0;
+    bottom: 100vh;
+    height: 100vh;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    padding: 120px 10% 10%;
+    align-items: stretch; }
+    .mobile-nav ul li {
+      cursor: pointer;
+      flex-grow: 1;
+      display: flex;
+      color: #f0f0f1;
+      align-items: center;
+      max-height: 250px;
+      border-top: 1px solid #f0f0f1;
+      padding: 10px;
+      font-size: 3rem;
+      font-weight: 200; }
+
 .about {
   background-color: #f0f0f1;
   display: flex;
@@ -588,33 +617,29 @@ table {
       cursor: pointer; }
       .main ul li a {
         text-decoration: none; }
-  .main .hamburger .line {
-    background-color: #f0f0f1;
-    height: 5px;
-    width: 30px;
-    margin: 5px;
-    border-radius: 5px; }
-  .main .mobile-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.9); }
-    .main .mobile-nav ul {
-      flex-direction: column;
-      padding: 10%;
-      align-items: stretch;
-      height: 100%; }
-      .main .mobile-nav ul li {
-        flex-grow: 1;
-        display: flex;
-        align-items: center;
-        max-height: 100px;
-        border-top: 1px solid #f0f0f1;
-        padding: 10px;
-        font-size: 3rem;
-        font-weight: 200; }
+  .main .hamburger {
+    display: none;
+    cursor: pointer;
+    position: relative;
+    height: 35px; }
+    .main .hamburger .line {
+      transition: 300ms;
+      left: 0;
+      position: relative;
+      background-color: #f0f0f1;
+      height: 5px;
+      width: 30px;
+      margin: 5px;
+      border-radius: 5px; }
+      .main .hamburger .line:first-of-type {
+        top: 0; }
+      .main .hamburger .line:last-of-type {
+        bottom: 0; }
+  @media (max-width: 800px) {
+    .main .web-nav {
+      display: none; }
+    .main .hamburger {
+      display: block; } }
   .main .content {
     display: flex;
     justify-content: center;
