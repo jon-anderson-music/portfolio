@@ -34,7 +34,6 @@ router.get('/', authRequired, (req, res) => {
 });
 
 router.post('/', authRequired, (req, res) => {
-  console.log('BODY', req.body);
   const audioFile = {
     title: req.body.title,
   };

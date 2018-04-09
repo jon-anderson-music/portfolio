@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    cursor: pointer;
     span {
       font-size: 2rem;
       text-transform: uppercase;
@@ -34,7 +35,7 @@
       }
     }
   }
-  .media-list {
+  .audio-list {
     margin-top: 20px;
     height: 250px;
     overflow: scroll;
@@ -89,5 +90,18 @@
         color: $color-white;
       }
     }
+  }
+  .video-list {
+    margin: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .video {
+      margin: 10px;
+    }
+  }
+
+  .hide {
+    display: none;
   }
 }

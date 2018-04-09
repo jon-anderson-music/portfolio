@@ -12,8 +12,4 @@ router.get('/', authRequired, (req, res) => {
   res.render('admin/index', { active: 'Overview' });
 });
 
-router.get('/video', authRequired, (req, res) => {
-  res.render('admin/video', { active: 'Video' });
-});
-
 module.exports = router;

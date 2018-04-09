@@ -2,6 +2,7 @@ const express = require('express');
 const Audio = require('../models/audio');
 const Bio = require('../models/bio');
 const Photo = require('../models/photo');
+const Video = require('../models/video');
 
 const router = express.Router();
 
@@ -55,12 +56,24 @@ router.get('/', (req, res) => {
     });
   });
 
+  const getAllVids = new Promise((res, rej) => {
+    Video.find({}, (err, videos) => {
+      if (err) {
+        rej(err);
+      } else {
+        videos.sort((a, b) => a.order < b.order ? -1 : 1);
+        res(videos);
+      }
+    });
+  });
+
   Promise.all([
     getAllAudio,
     getAllPhotos,
     getAllParas,
+    getAllVids,
   ]).then((values) => {
-    [data.audios, data.photos, data.paragraphs] = values;
+    [data.audios, data.photos, data.paragraphs, data.videos] = values;
     res.render('main/index', data);
   });
 });

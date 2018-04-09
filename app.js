@@ -40,6 +40,7 @@ app.use('/admin', require('./routes/auth'));
 app.use('/admin/bio', require('./routes/bio'));
 app.use('/admin/photo', require('./routes/photo'));
 app.use('/admin/audio', require('./routes/audio'));
+app.use('/admin/video', require('./routes/video'));
 
 app.listen(PORT, () => {
   console.log(`Your app is running on PORT ${PORT}`);

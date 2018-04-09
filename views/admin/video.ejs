@@ -1,9 +1,43 @@
 <% include partials/_header_logged_in %>
 
-  <main>
+<main>
 
-    <h1>The Video Route</h1>
+    <div class="video-form">
+
+      <div>
+        <label for="title">Title:</label>
+        <input class="title-input" type="text" name="title" />
+      </div>
+
+      <div>
+        <label for="video-url">YouTube ID</label>
+        <input class="url-input" type="text" name="url">
+      </div>
+
+      <div>
+        <label for="video-url">Video URL</label>
+        <input class="order-input" type="number" name="order">
+      </div>
+
+      <button class="submit-button" type="submit" name="button">Submit</button>
+
+    </div>
+
+    <div class="videos">
+
+      <% videos.forEach((video) => { %>
+        <div class="video" id="<%= video.id %>">
+          <input class="video-input" name="title" value="<%= video.title %>" />
+          <input class="video-input" name="url" value="<%= video.url %>" />
+          <input class="video-input" name="order" value="<%= video.order %>" />
+          <button class="video-delete">DELETE</button>
+        </div>
+        <% }) %>
+
+    </div>
 
   </main>
+
+  <script src="/scripts/admin_video.js" type="text/javascript"></script>
 
   <% include partials/_footer %>

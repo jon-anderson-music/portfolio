@@ -1,7 +1,9 @@
 const hamburger = document.querySelector('.hamburger');
 const hamburgerLines = document.querySelectorAll('.hamburger .line');
+const mediaToggleButtons = document.querySelectorAll('.media-button');
 const mobileNav = document.querySelector('.mobile-nav ul');
 const navbar = document.querySelector('.navbar');
+const mediaLists = document.querySelectorAll('.media-list ul');
 
 navbar.addEventListener('click', (evt) => {
   const { link } = evt.target.dataset;
@@ -10,6 +12,20 @@ navbar.addEventListener('click', (evt) => {
     page.scrollIntoView({ behavior: 'smooth' });
   }
 });
+
+mediaToggleButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    mediaLists.forEach((el) => {
+      el.classList.add('hide');
+    });
+    const toggleTag = button.dataset.toggle;
+    const list = document.querySelector(`.${toggleTag}`);
+    const activeButton = document.querySelector('.media-button.active');
+    list.classList.remove('hide');
+    activeButton.classList.remove('active');
+    button.classList.add('active');
+  });
+})
 
 mobileNav.addEventListener('click', (evt) => {
   const { link } = evt.target.dataset;
