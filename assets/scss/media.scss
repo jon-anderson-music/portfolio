@@ -93,12 +93,10 @@
   }
   .video-list {
     margin: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    .video {
-      margin: 10px;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    grid-gap: 20px;
+    justify-content: center;
   }
 
   .hide {

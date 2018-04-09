@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
       if (err) {
         rej(err);
       } else {
+        audios.sort((a, b) => (a.order < b.order ? -1 : 1));
         res(audios);
       }
     });
@@ -23,15 +24,7 @@ router.get('/', (req, res) => {
       if (err) {
         rej(err);
       } else {
-        photos.sort((a, b) => {
-          if (a.position < b.position) {
-            return -1;
-          }
-          if (a.position > b.position) {
-            return 1;
-          }
-          return 0;
-        });
+        photos.sort((a, b) => (a.position < b.position ? -1 : 1));
         res(photos);
       }
     });
@@ -42,15 +35,7 @@ router.get('/', (req, res) => {
       if (err) {
         rej(err);
       } else {
-        paras.sort((a, b) => {
-          if (a.order < b.order) {
-            return -1;
-          }
-          if (a.order > b.order) {
-            return 1;
-          }
-          return 0;
-        });
+        paras.sort((a, b) => (a.order < b.order ? -1 : 1));
         res(paras);
       }
     });
@@ -61,7 +46,7 @@ router.get('/', (req, res) => {
       if (err) {
         rej(err);
       } else {
-        videos.sort((a, b) => a.order < b.order ? -1 : 1);
+        videos.sort((a, b) => (a.order < b.order ? -1 : 1));
         res(videos);
       }
     });

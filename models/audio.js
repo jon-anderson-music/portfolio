@@ -6,7 +6,13 @@ const audioSchema = new mongoose.Schema({
     required: true,
   },
   url: {
+    // not required, as the url is created after
+    // audio object is
     type: String,
+  },
+  order: {
+    type: Number,
+    required: true,
   },
 });
 

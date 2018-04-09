@@ -2,10 +2,13 @@ const audioFileInput = document.querySelector('.audio-file-input');
 const audioFiles = document.querySelectorAll('.audio-file');
 const audioFileEditInputs = document.querySelectorAll('.audio-file-edit');
 const audioFileTitles = document.querySelectorAll('.audio-title');
+const inputEdits = document.querySelectorAll('.input-edit');
+const audioOrders = document.querySelectorAll('.audio-order-edit');
 const audioForm = document.querySelector('.audio-form');
 const deleteButtons = document.querySelectorAll('.audio-delete');
 const errorMessage = document.createElement('p');
 const loader = document.createElement('div');
+const orderInput = document.querySelector('.order-input');
 const submitButton = document.querySelector('.submit-button');
 const titleInput = document.querySelector('.title-input');
 
@@ -51,6 +54,7 @@ submitButton.addEventListener('click', (evt) => {
   fileReader.addEventListener('load', () => {
     const audio = fileReader.result;
     const title = titleInput.value;
+    const order = orderInput.value;
     fetch('/admin/audio', {
       credentials: 'include',
       headers: {
@@ -59,7 +63,8 @@ submitButton.addEventListener('click', (evt) => {
       method: 'POST',
       body: JSON.stringify({
         audio,
-        title
+        title,
+        order,
       }),
     }).then((response) => {
       console.log('RESPONSE', response)
@@ -78,11 +83,12 @@ submitButton.addEventListener('click', (evt) => {
   });
 })
 
-audioFileTitles.forEach((title) => {
-  title.addEventListener('blur', (evt) => {
-    const { id } = title.parentElement;
+inputEdits.forEach((input) => {
+  input.addEventListener('blur', (evt) => {
+    const { id } = input.parentElement;
+    const { name } = input;
     console.log('input blurred', id)
-    fetch(`/admin/audio/${id}/edit/title`, {
+    fetch(`/admin/audio/${id}/edit/${name}`, {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
@@ -92,9 +98,7 @@ audioFileTitles.forEach((title) => {
         property: evt.target.value,
       })
     }).then((res) => res.json())
-      .then((results) => {
-        window.location.reload()
-      }).catch((err) => {
+      .catch((err) => {
         console.error(err);
       })
   })

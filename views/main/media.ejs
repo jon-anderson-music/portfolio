@@ -36,7 +36,7 @@
       <ul class="video-list hide">
         <% videos.forEach((video, index) => { %>
           <li class="video">
-            <iframe width="240" height="135" src="<%= `https://www.youtube.com/embed/${video.url}` %>">
+            <iframe width="240" height="135" src="<%= `https://www.youtube.com/embed/${video.url}?rel=0` %>" allowFullScreen>
             </iframe>
           </li>
         <% }) %>

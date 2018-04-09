@@ -3,6 +3,8 @@ const audioPlayer = document.querySelector('audio');
 const bar = document.querySelector('.bar');
 const playerDetails = document.querySelector('.media-player .details');
 const playPauseBtn = document.querySelector('.play-pause');
+const prevButton = document.querySelector('.previous-track');
+const nextButton = document.querySelector('.next-track');
 const timeStart = document.querySelector('.time-start');
 const timeEnd = document.querySelector('.time-end');
 
@@ -24,9 +26,45 @@ const deactivateList = () => {
   });
 };
 
+const findActiveAndPlay = () => {
+  const selectedPlayBtn = document.querySelector('.audio-list .active .play-pause');
+  selectedPlayBtn.click();
+};
+
+const changeTrack = (diff) => {
+  const wasPlaying = !audioPlayer.paused;
+  let index;
+  for (let i = 0; i < audioList.children.length; i++) {
+    if (audioList.children[i].classList.contains('active')) {
+      index = i;
+    }
+  }
+  deactivateList();
+  const newIndex = index + diff;
+  const { length } = audioList.children;
+  const lastChild = audioList.children[length - 1];
+
+  if (newIndex < length && newIndex >= 0) {
+    audioList.children[newIndex].classList.add('active');
+  } else if (newIndex < 0) {
+    lastChild.classList.add('active');
+  } else {
+    audioList.children[0].classList.add('active');
+  }
+  if (wasPlaying) {
+    findActiveAndPlay();
+  }
+};
+
 const loadAudio = (title, url) => {
-  playerDetails.children[0].textContent = title;
-  audioPlayer.src = url;
+  if (title) {
+    playerDetails.children[0].textContent = title;
+    audioPlayer.src = url;
+  } else {
+    const selectedAudio = document.querySelector('.audio-list .active .wrapper');
+    playerDetails.children[0].textContent = selectedAudio.dataset.title;
+    audioPlayer.src = selectedAudio.dataset.url;
+  }
 };
 
 const pauseAudio = () => {
@@ -88,9 +126,16 @@ audioList.addEventListener('click', (evt) => {
   elevateClick(item);
 });
 
+nextButton.addEventListener('click', () => {
+  changeTrack(1);
+});
+
+prevButton.addEventListener('click', () => {
+  changeTrack(-1);
+});
+
 playPauseBtn.addEventListener('click', () => {
-  console.log('BUTTON CLICKED');
-  togglePlay();
+  findActiveAndPlay();
 });
 
 audioPlayer.style.display = 'none';
