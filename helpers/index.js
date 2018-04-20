@@ -1,3 +1,18 @@
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+});
+
+const mailOptions = {
+  to: 'austinwc33@yahoo.com',
+  subject: 'Jon Anderson Music Inquiry',
+};
+
 class Helpers {
   activateOne(arr, index, key, val) {
     arr.forEach((item, i) => {
@@ -15,6 +30,29 @@ class Helpers {
     } else {
       res.redirect('/admin/login');
     }
+  }
+
+  sendMail(name, email, message, res) {
+    mailOptions.from = email;
+    mailOptions.text = `
+      From:
+      ${name}
+
+      Email:
+      ${email}
+
+      Message:
+      ${message}
+    `;
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error(error);
+        res.redirect('/message_error');
+      } else {
+        console.log(`Email sent: ${info.response}`);
+        res.redirect('/message_sent');
+      }
+    });
   }
 }
 

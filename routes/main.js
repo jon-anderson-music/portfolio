@@ -5,6 +5,11 @@ const Photo = require('../models/photo');
 const Video = require('../models/video');
 
 const router = express.Router();
+const Helpers = require('../helpers/');
+
+const helpers = new Helpers();
+
+const { sendMail } = helpers;
 
 router.get('/', (req, res) => {
   const data = {};
@@ -65,7 +70,20 @@ router.get('/', (req, res) => {
 
 router.post('/contact', (req, res) => {
   const { body } = req;
-  console.log('THE REQUEST', body);
+  const {
+    email,
+    message,
+    name,
+  } = body;
+  sendMail(name, email, message, res);
+});
+
+router.get('/message_sent', (req, res) => {
+  res.render('main/message_sent');
+});
+
+router.get('/message_error', (req, res) => {
+  res.render('main/message_error');
 });
 
 module.exports = router;

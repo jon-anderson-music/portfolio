@@ -843,3 +843,13 @@ table {
     height: 300px; }
   .media .hide {
     display: none; }
+
+.notification-screen {
+  background-color: #010e5d;
+  color: #f0f0f1;
+  font-size: 5rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 30vh;
+  text-align: center; }

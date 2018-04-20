@@ -1,0 +1,10 @@
+.notification-screen {
+  background-color: $color-primary;
+  color: $color-white;
+  font-size: 5rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 30vh;
+  text-align: center;
+}

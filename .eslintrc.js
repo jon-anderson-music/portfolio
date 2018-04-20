@@ -5,4 +5,7 @@ module.exports = {
     browser: true,
     node: true,
   },
+  rules: {
+    'class-methods-use-this': 0,
+  }
 };
