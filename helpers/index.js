@@ -33,6 +33,7 @@ class Helpers {
   }
 
   sendMail(name, email, message, res) {
+    console.log('TRANSPORTER', transporter);
     mailOptions.from = email;
     mailOptions.text = `
       From:
