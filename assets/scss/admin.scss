@@ -1,3 +1,7 @@
+* {
+  font-size: 2rem;
+}
+
 $admin-nav-width: 200px;
 
 .submit-button {
@@ -54,7 +58,7 @@ $admin-nav-width: 200px;
     a {
       color: $color-white;
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 2rem;
       transition: 500ms;
       &:visited {
         color: $color-white;

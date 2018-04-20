@@ -1,5 +1,7 @@
 .media {
   background-color: $media-bg;
+  background-image: url('./images/JA_Media-Section.png');
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +39,7 @@
   }
   .audio-list {
     margin-top: 20px;
-    height: 250px;
+    height: 300px;
     overflow: scroll;
     hr {
       margin: 0;
@@ -75,6 +77,17 @@
       font-size: 1.3rem;
       border: none;
     }
+    .share-button {
+      background-color: $color-tertiary;
+      border-radius: 20px;
+      color: $color-white;
+      padding: 10px 25px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.3rem;
+      border: none;
+    }
     li.active {
       background-color: rgba(255, 255, 255, 0.05);
       .info {
@@ -97,6 +110,8 @@
     grid-template-columns: repeat(auto-fill, 240px);
     grid-gap: 20px;
     justify-content: center;
+    overflow: auto;
+    height: 300px;
   }
 
   .hide {

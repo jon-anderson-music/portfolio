@@ -13,18 +13,34 @@
         <% audios.forEach((audio, index) => { %>
           <% const className = index === 0 ? 'active' : '' %>
           <li class="<%= className %>">
-            <div class="wrapper" data-title="<%= audio.title %>" data-url="<%= audio.url %>">
+            <div
+              class="wrapper"
+              data-title="<%= audio.title %>"
+              data-url="<%= audio.url %>"
+            >
               <div class="play-pause">
                 <i class="far fa-play-circle"></i>
               </div>
               <div class="info">
-                <h2>
-                  <%= audio.title %>
-                </h2>
+                <h2><%= audio.title %></h2>
                 <h3>Jon Anderson</h3>
               </div>
               <div class="action">
-                <button>Share This</button>
+              <!-- Your share button code -->
+                <div
+                  data-href="https://jon-anderson-staging.herokuapp.com/" 
+                  data-layout="button"
+                  data-size="large"
+                  data-mobile-iframe="true"
+                >
+                  <a
+                    target="_blank" 
+                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjon-anderson-staging.herokuapp.com%2F%23media&amp;src=sdkpreparse"
+                    class="share-button"
+                  >
+                    Share
+                  </a>
+                </div>
               </div>
             </div>
             <hr>

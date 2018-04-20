@@ -213,13 +213,15 @@ table {
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: url("./images/head-shot-no-bg.png");
+      background-image: url("./images/JA_About-Me-Section.png");
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: 50% 50%;
       opacity: 0.2; }
       .about .photo img {
         display: none; } }
+
+* {
+  font-size: 2rem; }
 
 .submit-button {
   background-color: #010e5d;
@@ -285,7 +287,7 @@ table {
   .main-admin-container section.side-nav a {
     color: #f0f0f1;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 2rem;
     transition: 500ms; }
     .main-admin-container section.side-nav a:visited {
       color: #f0f0f1; }
@@ -476,6 +478,8 @@ table {
       border-color: #5182de; }
 
 .contact {
+  background-image: url("./images/JA_Contact-Me-Section.png");
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -587,6 +591,8 @@ table {
 
 .main {
   background-color: #010e5d;
+  background-image: url("./images/JA_Header-Section.png");
+  background-size: cover;
   display: flex;
   flex-direction: column; }
   .main * {
@@ -653,9 +659,7 @@ table {
       text-align: center;
       font-family: serif; }
     .main .content .header {
-      margin-top: -1.3em;
       margin-bottom: 20px;
-      background-color: #010e5d;
       font-size: 7rem;
       padding: 10px;
       font-weight: 500; }
@@ -738,6 +742,8 @@ table {
 
 .media {
   background-color: #322278;
+  background-image: url("./images/JA_Media-Section.png");
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -777,7 +783,7 @@ table {
         border-radius: 0 30px 30px 0; }
   .media .audio-list {
     margin-top: 20px;
-    height: 250px;
+    height: 300px;
     overflow: scroll; }
     .media .audio-list hr {
       margin: 0;
@@ -808,6 +814,16 @@ table {
       font-weight: 600;
       font-size: 1.3rem;
       border: none; }
+    .media .audio-list .share-button {
+      background-color: #3ce391;
+      border-radius: 20px;
+      color: #f0f0f1;
+      padding: 10px 25px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.3rem;
+      border: none; }
     .media .audio-list li.active {
       background-color: rgba(255, 255, 255, 0.05); }
       .media .audio-list li.active .info h2 {
@@ -822,6 +838,8 @@ table {
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
     grid-gap: 20px;
-    justify-content: center; }
+    justify-content: center;
+    overflow: auto;
+    height: 300px; }
   .media .hide {
     display: none; }

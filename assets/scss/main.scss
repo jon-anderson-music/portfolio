@@ -1,5 +1,7 @@
 .main {
   background-color: $color-primary;
+  background-image: url('./images/JA_Header-Section.png');
+  background-size: cover;
   display: flex;
   flex-direction: column;
   & * {
@@ -82,9 +84,7 @@
       font-family: serif;
     }
     .header {
-      margin-top: -1.3em;
       margin-bottom: 20px;
-      background-color: $color-primary;
       font-size: 7rem;
       padding: 10px;
       font-weight: 500;
