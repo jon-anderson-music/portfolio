@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const mailOptions = {
-  to: 'austinwc33@yahoo.com',
+  to: process.env.OWNER_EMAIL,
   subject: 'Jon Anderson Music Inquiry',
 };
 
