@@ -7,7 +7,9 @@
           <% console.log('THE PHOTO', photo) %>
             <% const className = `gallery-photo photo photo${index + 1}` %>
               <% const url = photo.url.split('/upload').join('/upload/w_200,h_200,c_fill') %>
-                <div class="<%= className %>" id="<%= url %>"></div>
+                <div class="<%= className %>" id="<%= url %>">
+                  <img src="<%= url %>" alt="<%= photo.title %>" />
+                </div>
                 <% } %>
                   <% }) %>
                     <!-- <div class="photo photo1"></div>
