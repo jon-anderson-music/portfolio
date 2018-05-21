@@ -11,7 +11,7 @@ const { authRequired } = helpers;
 const updateAudioFileById = (audio, id, res) => {
   const options = { public_id: id, resource_type: 'video' };
   cloudinary.uploader.upload(audio, (result) => {
-    const updateObj = { url: result.url };
+    const updateObj = { url: result.secure_url };
     Audio.findByIdAndUpdate(id, updateObj, { new: true }, (err, audio) => {
       if (err) {
         console.error('ERROR UPLOADING TO CLOUDINARY', err);

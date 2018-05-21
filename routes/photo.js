@@ -11,7 +11,7 @@ const { authRequired } = helpers;
 const updatePhotoById = (image, id, res) => {
   const options = { public_id: id };
   cloudinary.uploader.upload(image, (result) => {
-    const updateObj = { url: result.url };
+    const updateObj = { url: result.secure_url };
     Photo.findByIdAndUpdate(id, updateObj, { new: true }, (error, photo) => {
       if (error) {
         throw error;
