@@ -35,6 +35,19 @@
                 <h2><%= audio.title %></h2>
                 <h3>Jon Anderson</h3>
               </div>
+
+              <% if (audio.purchaseLink) { %>
+                <div class="action">
+                  <a
+                    class="share-button"
+                    href="<%= audio.purchaseLink %>"            
+                    target="_blank" 
+                  >
+                    Buy
+                  </a>
+                </div>
+              <% } %>
+
               <div class="action">
               <!-- Your share button code -->
                 <div
@@ -52,17 +65,7 @@
                   </a>
                 </div>
               </div>
-              <% if (audio.purchaseLink) { %>
-                <div class="action">
-                  <a
-                    class="share-button"
-                    href="<%= audio.purchaseLink %>"            
-                    target="_blank" 
-                  >
-                    Buy
-                  </a>
-                </div>
-              <% } %>
+              
             </div>
             <hr>
           </li>

@@ -17,7 +17,6 @@ const updateAudioFileById = (audio, id, res) => {
         console.error('ERROR UPLOADING TO CLOUDINARY', err);
         throw err;
       } else {
-        console.log('THE FILE UPLOADED TO CLOUDINARY');
         res.json(audio);
       }
     });
@@ -44,7 +43,6 @@ router.post('/', authRequired, (req, res) => {
       console.error('ERROR SAVING PHOTO', error);
       res.json(error);
     } else {
-      console.log('THE PHOTO SAVED', audio);
       const { _id: id } = audio;
       updateAudioFileById(req.body.audio, id, res);
     }
@@ -56,7 +54,6 @@ router.post('/:id/edit/audio', authRequired, (req, res) => {
 });
 
 router.post('/:id/edit/:property', authRequired, (req, res) => {
-  console.log('HITTING THE UPDATE ROUTE', req.body, req.params);
   const { id, property } = req.params;
   const updateObj = {};
   updateObj[property] = req.body.property;
