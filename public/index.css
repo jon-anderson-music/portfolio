@@ -132,6 +132,7 @@ table {
 
 .page {
   min-height: 100vh;
+  padding: 0 10px;
   box-sizing: border-box; }
 
 .container {
@@ -543,7 +544,7 @@ iframe {
         color: #f0f0f1;
         text-transform: uppercase; }
     .contact form .form-wrapper input {
-      flex-basis: 50%; }
+      width: 50%; }
     .contact form .form-wrapper textarea {
       resize: none;
       flex-basis: 100%; }
