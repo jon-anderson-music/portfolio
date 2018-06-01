@@ -132,14 +132,6 @@ table {
   border-spacing: 0;
 }
 
-.sr-only {
-  display: none;
-}
-
-.hide, .hidden-input {
-  display: none;
-}
-
 $color-primary: #010e5d;
 $color-primary-light: #5182de;
 $color-secondary: #fc544e;
@@ -152,6 +144,8 @@ $color-black: #111111;
 $color-white: #f0f0f1;
 $color-gray: #2c273e;
 $color-gray-hover: #3c374e;
+$desktop-min: 1100px;
+$tablet-min: 800px;
 
 @mixin sectionTitle($r, $g, $b) {
   color: rgba($r, $g, $b, 1);
@@ -235,6 +229,48 @@ $color-gray-hover: #3c374e;
   }
 }
 
+iframe {
+  width: 300px;
+  height: 200px;
+  @media (min-width: $tablet-min) {
+    width: 600px;
+    height: 400px;
+  }
+  @media (min-width: $desktop-min) {
+    width: 800px;
+    height: 600px;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .fa-times {
+    color: $color-white;
+    z-index: 1000;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 4.0rem;
+  }
+  .modal-body {
+    padding: 10px;
+    background-color: $color-white;
+  }
+}
+
+*[role="button"] {
+  cursor: pointer;
+}
+
 @import "./about";
 @import "./admin";
 @import "./contact";
@@ -242,3 +278,11 @@ $color-gray-hover: #3c374e;
 @import "./main";
 @import "./media";
 @import "./notification";
+
+.sr-only {
+  display: none;
+}
+
+.hide, .hidden-input {
+  display: none;
+}

@@ -1,3 +1,13 @@
+<div class="video-modal modal hide">
+  <span class="video-close" role="button">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </span>
+    <div class="modal-body">
+      <iframe class="video-player" src="" allowFullScreen>
+      </iframe>
+  </div>
+</div>
+
 <div class="media page" id="media">
   <div class="container">
     <h1>Media</h1>
@@ -18,7 +28,7 @@
               data-title="<%= audio.title %>"
               data-url="<%= audio.url %>"
             >
-              <div class="play-pause">
+              <div class="play-pause" role="button">
                 <i class="far fa-play-circle"></i>
               </div>
               <div class="info">
@@ -49,14 +59,55 @@
       </ul>
 
       <!-- Video list -->
-      <ul class="video-list hide">
+      <!-- <ul class="video-list hide">
         <% videos.forEach((video, index) => { %>
           <li class="video">
             <iframe width="240" height="135" src="<%= `https://www.youtube.com/embed/${video.url}?rel=0` %>" allowFullScreen>
             </iframe>
           </li>
         <% }) %>
+      </ul> -->
+
+      <!-- Audio list -->
+      <ul class="video-list hide">
+        <% videos.forEach((video, index) => { %>
+          <% const className = index === 0 ? 'active' : '' %>
+          <li class="<%= className %>">
+            <div
+              class="wrapper"
+              data-title="<%= video.title %>"
+              data-url="<%= `https://www.youtube.com/embed/${video.url}?rel=0&autoplay=1` %>"
+            >
+              <div class="play-pause" role="button">
+                <i class="far fa-play-circle"></i>
+              </div>
+              <div class="info">
+                <h2><%= video.title %></h2>
+                <h3>Jon Anderson</h3>
+              </div>
+              <div class="action">
+              <!-- Your share button code -->
+                <div
+                  data-href="https://jon-anderson-staging.herokuapp.com/" 
+                  data-layout="button"
+                  data-size="large"
+                  data-mobile-iframe="true"
+                >
+                  <a
+                    target="_blank" 
+                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjon-anderson-staging.herokuapp.com%2F%23media&amp;src=sdkpreparse"
+                    class="share-button"
+                  >
+                    Share
+                  </a>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </li>
+        <% }) %>
       </ul>
+
     </div>
   </div>
 </div>
