@@ -37,6 +37,7 @@ router.post('/', authRequired, (req, res) => {
   const audioFile = {
     title: req.body.title,
     order: req.body.order,
+    purchaseLink: req.body.purchaseLink,
   };
   Audio.create(audioFile, (error, audio) => {
     if (error) {

@@ -14,6 +14,9 @@ const audioSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  purchaseLink: {
+    type: String,
+  },
 });
 
 const Audio = mongoose.model('Audio', audioSchema);

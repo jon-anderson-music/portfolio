@@ -19,7 +19,12 @@
         <input class="order-input" type="number" name="order">
       </div>
 
-      <button class="submit-button" type="submit" name="button">Submit</button>
+      <div>
+          <label for="purchaseLink">Purchase Link</label>
+          <input class="link-input" name="purchaseLink">
+        </div>
+  
+        <button class="submit-button" type="submit" name="button">Submit</button>
 
     </div>
 
@@ -30,6 +35,7 @@
           <input class="audio-title input-edit" name="title" value="<%= audio.title %>" />
           <input class="audio-file-edit" type="file" />
           <input class="audio-order-edit input-edit" name="order" type="number" value="<%= audio.order %>" />
+          <input class="audio-link-edit input-edit" name="purchaseLink" value="<%= audio.purchaseLink %>" />
           <audio src="<%= audio.url %>" controls></audio>
           <button class="audio-delete">DELETE</button>
         </div>

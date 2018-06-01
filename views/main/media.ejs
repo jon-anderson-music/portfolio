@@ -46,12 +46,19 @@
                   <a
                     target="_blank" 
                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjon-anderson-staging.herokuapp.com%2F%23media&amp;src=sdkpreparse"
-                    class="share-button"
+                    class="share-button white"
                   >
                     Share
                   </a>
                 </div>
               </div>
+              <% if (audio.purchaseLink) { %>
+                <div class="action">
+                  <a class="share-button" href="<%= audio.purchaseLink %>">
+                    Buy
+                  </a>
+                </div>
+              <% } %>
             </div>
             <hr>
           </li>
