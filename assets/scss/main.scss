@@ -81,7 +81,7 @@
       border-radius: 2px;
       padding: 40px;
       text-align: center;
-      font-family: serif;
+      font-family: $font-primary;
     }
     .header {
       margin-bottom: 20px;
@@ -92,6 +92,11 @@
     span {
       font-weight: 100;
       font-size: 3rem;
+    }
+    .carousel {
+      span {
+        font-family: $font-body;
+      }
     }
     .slider-indicator {
       display: flex;

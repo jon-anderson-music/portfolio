@@ -1,3 +1,7 @@
+$font-primary: 'Lobster', cursive;
+$font-secondary: 'Cinzel Decorative', cursive;
+$font-body: sans-serif;
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -110,7 +114,7 @@ html {
 }
 body {
   line-height: 1;
-  font-family: sans-serif;
+  font-family: $font-body;
 }
 ol,
 ul {
@@ -184,6 +188,10 @@ $tablet-min: 800px;
     background-color: #ccc;
     cursor: not-allowed;
   }
+}
+
+h1 {
+  font-family: $font-secondary;
 }
 
 .page {

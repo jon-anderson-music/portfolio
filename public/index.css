@@ -130,6 +130,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+h1 {
+  font-family: "Cinzel Decorative", cursive; }
+
 .page {
   min-height: 100vh;
   padding: 0 10px;
@@ -689,7 +692,7 @@ iframe {
       border-radius: 2px;
       padding: 40px;
       text-align: center;
-      font-family: serif; }
+      font-family: "Lobster", cursive; }
     .main .content .header {
       margin-bottom: 20px;
       font-size: 7rem;
@@ -698,6 +701,8 @@ iframe {
     .main .content span {
       font-weight: 100;
       font-size: 3rem; }
+    .main .content .carousel span {
+      font-family: sans-serif; }
     .main .content .slider-indicator {
       display: flex;
       justify-content: center;
