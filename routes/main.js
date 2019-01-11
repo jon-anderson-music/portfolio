@@ -13,6 +13,8 @@ const { sendMail } = helpers;
 
 router.get('/', (req, res) => {
   const data = {};
+  const mainQuote = process.env.MAIN_QUOTE;
+  const quoteAuthor = process.env.QUOTE_AUTHOR;
   const getAllAudio = new Promise((res, rej) => {
     Audio.find({}, (err, audios) => {
       if (err) {
@@ -64,6 +66,8 @@ router.get('/', (req, res) => {
     getAllVids,
   ]).then((values) => {
     [data.audios, data.photos, data.paragraphs, data.videos] = values;
+    data.quote = mainQuote;
+    data.quoteAuthor = quoteAuthor;
     res.render('main/index', data);
   });
 });
