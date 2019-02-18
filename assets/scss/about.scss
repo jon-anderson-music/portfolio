@@ -27,20 +27,19 @@
     flex-direction: column;
     justify-content: flex-end;
   }
-  @media (max-width: 1000px) {
-    .photo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('./images/JA_About-Me-Section.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      opacity: 0.2;
-      img {
-        display: none;
-      }
+  .photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./images/JA_About-Me-Section.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.2;
+    img {
+      display: none;
     }
   }
 }

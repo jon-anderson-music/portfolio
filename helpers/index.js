@@ -2,17 +2,6 @@ const sgMail = require('@sendgrid/mail');
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const nodemailer = require('nodemailer');
-const sgTransport = require('nodemailer-sendgrid-transport');
-
-const options = {
-  auth: {
-    api_key: process.env.SENDGRID_API_KEY,
-  },
-};
-
-const client = nodemailer.createTransport(sgTransport(options));
-
 class Helpers {
   activateOne(arr, index, key, val) {
     arr.forEach((item, i) => {
@@ -62,39 +51,6 @@ class Helpers {
       console.error(error);
       res.redirect('/message_error');
     });
-
-    // const mailOptions = {
-    //   from: email,
-    //   to: process.env.OWNER_EMAIL,
-    //   replyTo: email,
-    //   subject: 'Jon Anderson Music Inquiry',
-    //   text: `
-    //     From:
-    //     ${name}
-
-    //     Email:
-    //     ${email}
-
-    //     Message:
-    //     ${message}
-    //   `,
-    //   html: `
-    //     <p>FROM: ${name}</p>
-    //     <p>EMAIL: ${email}</p>
-    //     <p>${message}</p>
-    //   `,
-    // };
-
-    // client.sendMail(mailOptions, (error, info) => {
-    //   if (error) {
-    //     console.error(error);
-    //     res.redirect('/message_error');
-    //   } else {
-    //     console.log('Email sent!');
-    //     console.log(info);
-    //     res.redirect('/message_sent');
-    //   }
-    // });
   }
 }
 
