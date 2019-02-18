@@ -1,3 +1,7 @@
+const sgMail = require('@sendgrid/mail');
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 const nodemailer = require('nodemailer');
 const sgTransport = require('nodemailer-sendgrid-transport');
 
@@ -29,10 +33,9 @@ class Helpers {
   }
 
   sendMail(name, email, message, res) {
-    const mailOptions = {
-      from: email,
+    const msg = {
       to: process.env.OWNER_EMAIL,
-      replyTo: email,
+      from: email,
       subject: 'Jon Anderson Music Inquiry',
       text: `
         From:
@@ -51,15 +54,47 @@ class Helpers {
       `,
     };
 
-    client.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error(error);
-        res.redirect('/message_error');
-      } else {
-        console.log(`Email sent: ${info.response}`);
-        res.redirect('/message_sent');
-      }
+    sgMail.send(msg).then((info) => {
+      console.log('Email sent!');
+      console.log(info);
+      res.redirect('/message_sent');
+    }).catch((error) => {
+      console.error(error);
+      res.redirect('/message_error');
     });
+
+    // const mailOptions = {
+    //   from: email,
+    //   to: process.env.OWNER_EMAIL,
+    //   replyTo: email,
+    //   subject: 'Jon Anderson Music Inquiry',
+    //   text: `
+    //     From:
+    //     ${name}
+
+    //     Email:
+    //     ${email}
+
+    //     Message:
+    //     ${message}
+    //   `,
+    //   html: `
+    //     <p>FROM: ${name}</p>
+    //     <p>EMAIL: ${email}</p>
+    //     <p>${message}</p>
+    //   `,
+    // };
+
+    // client.sendMail(mailOptions, (error, info) => {
+    //   if (error) {
+    //     console.error(error);
+    //     res.redirect('/message_error');
+    //   } else {
+    //     console.log('Email sent!');
+    //     console.log(info);
+    //     res.redirect('/message_sent');
+    //   }
+    // });
   }
 }
 

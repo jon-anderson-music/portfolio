@@ -4,14 +4,13 @@
     <div class="photos">
       <% photos.forEach((photo, index) => { %>
         <% if (index < 7) { %>
-          <% console.log('THE PHOTO', photo) %>
-            <% const className = `gallery-photo photo photo${index + 1}` %>
-              <% const url = photo.url.split('/upload').join('/upload/w_200,h_200,c_fill') %>
-                <div class="<%= className %>" id="<%= url %>">
-                  <img src="<%= url %>" alt="<%= photo.title %>" />
-                </div>
-                <% } %>
-                  <% }) %>
+          <% const className = `gallery-photo photo photo${index + 1}` %>
+            <% const url = photo.url.split('/upload').join('/upload/w_200,h_200,c_fill') %>
+              <div class="<%= className %>" id="<%= url %>">
+                <img src="<%= url %>" alt="<%= photo.title %>" />
+              </div>
+              <% } %>
+                <% }) %>
                     <!-- <div class="photo photo1"></div>
       <div class="photo photo2"></div>
       <div class="photo photo3"></div>
