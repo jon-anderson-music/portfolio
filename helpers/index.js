@@ -1,20 +1,13 @@
 const nodemailer = require('nodemailer');
+const sgTransport = require('nodemailer-sendgrid-transport');
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
+const options = {
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD,
+    api_key: process.env.SENDGRID_API_KEY,
   },
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-});
-
-const mailOptions = {
-  to: process.env.OWNER_EMAIL,
-  subject: 'Jon Anderson Music Inquiry',
 };
+
+const client = nodemailer.createTransport(sgTransport(options));
 
 class Helpers {
   activateOne(arr, index, key, val) {
@@ -36,19 +29,29 @@ class Helpers {
   }
 
   sendMail(name, email, message, res) {
-    console.log('TRANSPORTER', transporter);
-    mailOptions.from = email;
-    mailOptions.text = `
-      From:
-      ${name}
+    const mailOptions = {
+      from: email,
+      to: process.env.OWNER_EMAIL,
+      replyTo: email,
+      subject: 'Jon Anderson Music Inquiry',
+      text: `
+        From:
+        ${name}
 
-      Email:
-      ${email}
+        Email:
+        ${email}
 
-      Message:
-      ${message}
-    `;
-    transporter.sendMail(mailOptions, (error, info) => {
+        Message:
+        ${message}
+      `,
+      html: `
+        <p>FROM: ${name}</p>
+        <p>EMAIL: ${email}</p>
+        <p>${message}</p>
+      `,
+    };
+
+    client.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error(error);
         res.redirect('/message_error');

@@ -108,7 +108,6 @@ photoPositions.forEach((input) => {
 });
 
 photoDescriptions.forEach((description) => {
-  console.log('THE DESCRIPTION', description);
   description.addEventListener('blur', (evt) => {
     const parentId = description.parentElement.id;
     console.log('BLURRING', parentId);
