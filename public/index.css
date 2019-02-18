@@ -728,6 +728,7 @@ iframe {
     position: fixed;
     z-index: 10;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     bottom: 0;
     left: 0;
@@ -778,6 +779,9 @@ iframe {
       .main .media-player .details h6 {
         font-size: 1.4rem;
         opacity: 0.5; }
+    @media (max-width: 800px) {
+      .main .media-player .progress-bar {
+        display: none; } }
 
 .media {
   background-color: #322278;
