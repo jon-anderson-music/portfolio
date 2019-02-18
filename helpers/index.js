@@ -24,7 +24,8 @@ class Helpers {
   sendMail(name, email, message, res) {
     const msg = {
       to: process.env.OWNER_EMAIL,
-      from: email,
+      from: process.env.OWNER_EMAIL,
+      replyTo: email,
       subject: 'Jon Anderson Music Inquiry',
       text: `
         From:
