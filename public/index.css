@@ -214,7 +214,6 @@ iframe {
   position: relative; }
   .about .description {
     flex-grow: 1;
-    padding-left: 15%;
     align-items: stretch;
     display: flex;
     flex-direction: column;
@@ -236,7 +235,12 @@ iframe {
       font-size: 2.2rem;
       line-height: 2em;
       letter-spacing: 1px;
-      margin: 4rem 0 0; }
+      margin: 4rem 0 0;
+      word-break: break-all; }
+  @media (min-width: 800px) {
+    .about .description {
+      padding-left: 15%;
+      padding-right: 15%; } }
   .about .photo {
     display: flex;
     flex-direction: column;
